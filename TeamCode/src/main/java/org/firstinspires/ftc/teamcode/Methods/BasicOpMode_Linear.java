@@ -90,7 +90,6 @@ public class BasicOpMode_Linear extends LinearOpMode {
             // Setup a variable for each drive wheel to save power level for telemetry.  Pretty epic.
             double leftPower;
             double rightPower;
-            double boxMotorPower;
 
             // Choose to drive using either Tank Mode, or POV Mode
             // Comment out the method that's not used.  The default below is POV.
@@ -114,8 +113,13 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 rightPower = -gamepad1.right_stick_y ;
             }
 
-            boxMotorPower = gamepad1.b;
+            //box servo powers when you press button "b" on main driver gamepad
 
+                    if (gamepad1.b==true) {
+                        boxMotor.setPower(1);
+                    }else{
+                     boxMotor.setPower(0);
+                    }
 
 
 
@@ -129,7 +133,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             // Send calculated power to wheels
             leftDrive.setPower(leftPower);
             rightDrive.setPower(rightPower);
-            boxMotor.setPower(boxMotorPower);
+
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
