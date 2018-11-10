@@ -144,10 +144,12 @@ public class BasicOpMode_Linear extends LinearOpMode {
                         //boxext buttons
             if(gamepad2.a==true){
                 boxext.setPower(1);
-            }else if(gamepad2.b==true){
-                boxext.setPower(-1);
             }else {
-                boxext.setPower(0);
+                if(gamepad2.b==true){
+                    boxext.setPower(-1);
+                }else {
+                    boxext.setPower(0);
+                }
             }
 
 
