@@ -42,13 +42,14 @@ import java.util.concurrent.TimeUnit;
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
 //@Disabled
 public class BasicOpMode_Linear extends LinearOpMode {
-    
+
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private CRServo boxMotor = null;
-    boolean smode=false;
+    private DcMotor boxext =null;
+    int smode=1;
     int mdswitch = 1;
 
     @Override
@@ -62,6 +63,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         boxMotor = hardwareMap.get(CRServo.class, "box_Motor");
+        boxext = hardwareMap.get(DcMotor.class, "boxext");
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
@@ -79,7 +81,11 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double leftPower;
             double rightPower;
 
-
+                //slowmode button
+            if(gamepad1.right_bumper==true){
+                smode*=-1;
+            }
+            // drivemode button
             if(gamepad1.y==true){
                 mdswitch*=-1;
             }
@@ -109,13 +115,15 @@ public class BasicOpMode_Linear extends LinearOpMode {
 
                         //power in wheels
 
-                    if(smode==false) {
+                    if(smode==1) {
                         leftDrive.setPower(leftPower);
                         rightDrive.setPower(rightPower);
                     }else{
                         leftDrive.setPower(leftPower*.5);
                         rightDrive.setPower(rightPower*.5);
                     }
+
+
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
