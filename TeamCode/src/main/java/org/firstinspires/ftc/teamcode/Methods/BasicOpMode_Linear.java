@@ -95,7 +95,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 mdswitch*=-1;
             }
 
-
+            //lift motor power and thing
             if(gamepad2.left_bumper == true){
                 liftMotor.setPower(liftPower*1);
             }else{
