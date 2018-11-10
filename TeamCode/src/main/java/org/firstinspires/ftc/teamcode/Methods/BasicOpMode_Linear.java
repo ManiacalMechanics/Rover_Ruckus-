@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
 //@Disabled
 public class BasicOpMode_Linear extends LinearOpMode {
-
+    // gay
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     private DcMotor leftDrive = null;
