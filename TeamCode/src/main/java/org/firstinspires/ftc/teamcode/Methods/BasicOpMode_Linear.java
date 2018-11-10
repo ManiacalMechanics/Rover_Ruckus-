@@ -38,18 +38,6 @@ import com.qualcomm.robotcore.util.Range;
 import java.util.Scanner;
 import com.qualcomm.robotcore.hardware.CRServo;
 import java.util.concurrent.TimeUnit;
-/**
- * This file contains an minimal example of a Linear "OpMode". An OpMode is a 'program' that runs in either
- * the autonomous or the teleop period of an FTC match. The names of OpModes appear on the menu
- * of the FTC Driver Station. When an selection is made from the menu, the corresponding OpMode
- * class is instantiated on the Robot Controller and executed.
- *
- * This particular OpMode just executes a basic Tank Drive Teleop for a two wheeled robot
- * It includes all the skeletal structure that all linear OpModes contain.
- * i am epic
- * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
- */
 
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
 //@Disabled
@@ -60,7 +48,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private CRServo boxMotor = null;
-
+    boolean smode=false;
     int mdswitch = 1;
 
     @Override
@@ -91,14 +79,13 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double leftPower;
             double rightPower;
 
-            // Choose to drive using either Tank Mode, or POV Mode
-            // Comment out the method that's not used.  The default below is POV.
 
-            // POV Mode uses left stick to go forward, and right stick to turn.
-            // - This uses basic math to combine motions and is easier to drive straight.
             if(gamepad1.y==true){
                 mdswitch*=-1;
             }
+
+            
+
 
 
             if(mdswitch==1){
@@ -113,7 +100,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 rightPower = -gamepad1.right_stick_y ;
             }
 
-            //box servo powers when you press button "b" on main driver gamepad
+                        //boxservo
 
                     if (gamepad1.b==true) {
                         boxMotor.setPower(1);
@@ -122,23 +109,21 @@ public class BasicOpMode_Linear extends LinearOpMode {
                     }
 
 
+                        //power in wheels
 
-
-
-                    
-            // Tank Mode uses one stick to control each wheel.
-            // - This requires no math, but it is hard to drive forward slowly and keep straight.
-
-
-            // Send calculated power to wheels
-            leftDrive.setPower(leftPower);
-            rightDrive.setPower(rightPower);
-
+                    if(smode==false) {
+                        leftDrive.setPower(leftPower);
+                        rightDrive.setPower(rightPower);
+                    }else{
+                        leftDrive.setPower(leftPower*.5);
+                        rightDrive.setPower(rightPower*.5);
+                    }
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
             telemetry.update();
+            telemetry.addData ("Slow Mode Status",smode);
         }
     }
 }
