@@ -84,9 +84,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
                 mdswitch*=-1;
             }
 
-            
-
-
+//booger
 
             if(mdswitch==1){
 
