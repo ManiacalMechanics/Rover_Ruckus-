@@ -120,7 +120,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             }else{
 
                 leftPower  = gamepad1.left_stick_y ;
-                rightPower = -gamepad1.right_stick_y ;
+                rightPower = gamepad1.right_stick_y ;
             }
 
                         //boxservo
