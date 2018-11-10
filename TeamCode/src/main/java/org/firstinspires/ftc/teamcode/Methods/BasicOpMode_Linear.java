@@ -48,13 +48,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
     private DcMotor leftDrive = null;
     private DcMotor rightDrive = null;
     private CRServo boxMotor = null;
-<<<<<<< Updated upstream
     private DcMotor boxext =null;
     int smode=1;
-=======
     private DcMotor liftMotor = null;
-    boolean smode=false;
->>>>>>> Stashed changes
     int mdswitch = 1;
 
     @Override
@@ -68,11 +64,9 @@ public class BasicOpMode_Linear extends LinearOpMode {
         leftDrive  = hardwareMap.get(DcMotor.class, "left_drive");
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         boxMotor = hardwareMap.get(CRServo.class, "box_Motor");
-<<<<<<< Updated upstream
         boxext = hardwareMap.get(DcMotor.class, "boxext");
-=======
-        liftMotor = hardwareMap.get(DcMotor.class, "lift_Motor")
->>>>>>> Stashed changes
+        liftMotor = hardwareMap.get(DcMotor.class, "lift_Motor");
+
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
@@ -90,6 +84,7 @@ public class BasicOpMode_Linear extends LinearOpMode {
             double leftPower;
             double rightPower;
             double liftPower;
+            liftPower=1;
 
                 //slowmode button
             if(gamepad1.right_bumper==true){
