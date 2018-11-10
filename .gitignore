@@ -1,4 +1,4 @@
 # Disallow all files
 *
 # Allow specific file with a !
-!/2018-2019-Rover-Rucku/TeamCode
+!/ftc_app/TeamCode
