@@ -59,7 +59,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @Autonomous(name="epik auto", group="uhhhh")
 @Disabled
-public class PushbotAutoDriveByTime_Linear extends LinearOpMode {
+public class PushbotAutoDriveByTime_Linear extends BasicOpMode_Linear {
 
     /* Declare OpMode members. */
     HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
