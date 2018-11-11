@@ -1,4 +1,4 @@
 # Disallow all files
 *
 # Allow specific file with a !
-!/ftc_app/TeamCode
+!/TeamCode/src/main/java/org.firstinspires.ftc.teamcode
