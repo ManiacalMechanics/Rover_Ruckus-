@@ -54,7 +54,6 @@ public class BasicOpMode_Linear extends robotmanager {
         waitForStart();
         runtime.reset();
 
-        // run until the end of the match (driver presses STOP) ryan is epic
         while (opModeIsActive()) {
 
             // Setup a variable for each drive wheel to save power level for telemetry.  Pretty epic.
