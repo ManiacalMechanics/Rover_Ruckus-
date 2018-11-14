@@ -52,7 +52,6 @@ public class BasicOpMode_Linear extends robotmanager {
         waitForStart();
         runtime.reset();
 
-        double rightPower;
         while (opModeIsActive()) {
             liftPower=1;
 
@@ -82,8 +81,7 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
             if(mdswitch==1){
-                rightPower =newturndrive.rdrive(drive,turn);
-                leftPower =newturndrive.ldrive(drive,turn);
+                driveMethods.driveTurn(drive,turn);
             }else{
 
                 leftPower  = gamepad1.left_stick_y ;

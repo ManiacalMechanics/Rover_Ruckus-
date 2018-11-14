@@ -19,13 +19,14 @@ public class robotmanager extends LinearOpMode{
     public CRServo boxMotor = null;
     public DcMotor boxext =null;
     public DcMotor liftMotor = null;
-    public turndrive newturndrive= new turndrive();
     double drive = -gamepad1.left_stick_y;
     double turn  =  gamepad1.right_stick_x;
     public int smode=1;
     public int mdswitch = 1;
     double leftPower;
     double liftPower;
+    double rightPower;
+    driveMethods driveMethods=new driveMethods();
 
 
     public void Init()
