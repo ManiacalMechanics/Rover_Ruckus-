@@ -45,22 +45,15 @@ import java.util.concurrent.TimeUnit;
 public class BasicOpMode_Linear extends robotmanager {
 
     // Declare OpMode members.
-    private int smode=1;
-    private int mdswitch = 1;
-    private turndrive newturndrive= new turndrive();
+
     @Override
     public void runOpMode() {
-
             Init();
         waitForStart();
         runtime.reset();
 
         double rightPower;
         while (opModeIsActive()) {
-
-            // Setup a variable for each drive wheel to save power level for telemetry.  Pretty epic.
-            double leftPower;
-            double liftPower;
             liftPower=1;
 
                 //slowmode button
@@ -89,8 +82,8 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
             if(mdswitch==1){
-                rightPower =newturndrive.rdrive();
-                leftPower =newturndrive.ldrive();
+                rightPower =newturndrive.rdrive(drive,turn);
+                leftPower =newturndrive.ldrive(drive,turn);
             }else{
 
                 leftPower  = gamepad1.left_stick_y ;

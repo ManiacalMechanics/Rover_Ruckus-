@@ -4,18 +4,13 @@ import com.qualcomm.robotcore.util.Range;
 
 public  class turndrive extends BasicOpMode_Linear{
 
-    double drive = -gamepad1.left_stick_y;
-    double turn  =  gamepad1.right_stick_x;
-
-            double rdrive(){
+            double rdrive(double drive,double turn){
                 Init();
-                double rdrive = Range.clip(drive - turn, -1.0, 1.0) ;
-                return rdrive();
+                return Range.clip(drive+turn,-1.0,1.0);
             }
 
-            double ldrive(){
+            double ldrive(double drive, double turn){
                 Init();
-                double ldrive = Range.clip(drive+turn,-1.0,1.0);
-                return ldrive();
+                return Range.clip(drive+turn,-1.0,1.0);
             }
 }
