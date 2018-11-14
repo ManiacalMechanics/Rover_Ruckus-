@@ -99,6 +99,9 @@ public class BasicOpMode_Linear extends robotmanager {
                 rightPower = gamepad1.right_stick_y ;
             }
 
+
+
+
                         //boxservo
 
                     if (gamepad1.b==true) {
