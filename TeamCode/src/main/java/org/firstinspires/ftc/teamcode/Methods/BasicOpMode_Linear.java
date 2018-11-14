@@ -44,8 +44,8 @@ import java.util.concurrent.TimeUnit;
 public class BasicOpMode_Linear extends robotmanager {
 
     // Declare OpMode members.
-    int smode=1;
-    int mdswitch = 1;
+    private int smode=1;
+    private int mdswitch = 1;
 
     @Override
     public void runOpMode() {
@@ -63,19 +63,19 @@ public class BasicOpMode_Linear extends robotmanager {
             liftPower=1;
 
                 //slowmode button
-            if(gamepad1.right_bumper==true){
+            if(gamepad1.right_bumper){
                 smode*=-1;
             }
             // drivemode button
-            if(gamepad1.y==true){
+            if(gamepad1.y){
                 mdswitch*=-1;
             }
 
             //lift motor power and thing
-            if(gamepad2.left_bumper == true){
+            if(gamepad2.left_bumper){
                 liftMotor.setPower(liftPower*1);
             }else{
-                if (gamepad2.right_bumper ==true){
+                if (gamepad2.right_bumper){
                     liftMotor.setPower(liftPower*-1);
                 }else{
                     liftMotor.setPower(0);
@@ -104,7 +104,7 @@ public class BasicOpMode_Linear extends robotmanager {
 
                         //boxservo
 
-                    if (gamepad1.b==true) {
+                    if (gamepad1.b) {
                         boxMotor.setPower(1);
                     }else{
                      boxMotor.setPower(0);
@@ -121,10 +121,10 @@ public class BasicOpMode_Linear extends robotmanager {
                         rightDrive.setPower(rightPower*.5);
                     }
                         //boxext buttons
-            if(gamepad2.a==true){
+            if(gamepad2.a){
                 boxext.setPower(1);
             }else {
-                if(gamepad2.b==true){
+                if(gamepad2.b){
                     boxext.setPower(-1);
                 }else {
                     boxext.setPower(0);
