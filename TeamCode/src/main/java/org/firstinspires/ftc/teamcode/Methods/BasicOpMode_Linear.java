@@ -39,6 +39,7 @@ import java.util.Scanner;
 import com.qualcomm.robotcore.hardware.CRServo;
 import java.util.concurrent.TimeUnit;
 
+
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
 //@Disabled
 public class BasicOpMode_Linear extends robotmanager {
@@ -46,7 +47,7 @@ public class BasicOpMode_Linear extends robotmanager {
     // Declare OpMode members.
     private int smode=1;
     private int mdswitch = 1;
-
+    private turndrive newturndrive= new turndrive();
     @Override
     public void runOpMode() {
 
@@ -54,11 +55,11 @@ public class BasicOpMode_Linear extends robotmanager {
         waitForStart();
         runtime.reset();
 
+        double rightPower;
         while (opModeIsActive()) {
 
             // Setup a variable for each drive wheel to save power level for telemetry.  Pretty epic.
             double leftPower;
-            double rightPower;
             double liftPower;
             liftPower=1;
 
@@ -88,11 +89,8 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
             if(mdswitch==1){
-
-                double drive = -gamepad1.left_stick_y;
-                double turn  =  gamepad1.right_stick_x;
-                leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
-                rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
+                rightPower =newturndrive.rdrive();
+                leftPower =newturndrive.ldrive();
             }else{
 
                 leftPower  = gamepad1.left_stick_y ;
