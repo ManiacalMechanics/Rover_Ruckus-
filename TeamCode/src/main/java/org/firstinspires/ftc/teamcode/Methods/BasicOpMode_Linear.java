@@ -29,15 +29,7 @@
 
 package org.firstinspires.ftc.teamcode.Methods;
 
-import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.util.Range;
-import java.util.Scanner;
-import com.qualcomm.robotcore.hardware.CRServo;
-import java.util.concurrent.TimeUnit;
 
 
 @TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
@@ -48,22 +40,36 @@ public class BasicOpMode_Linear extends robotmanager {
 
     @Override
     public void runOpMode() {
+
         waitForStart();
         runtime.reset();
 
         while (opModeIsActive()) {
-            liftPower=1;
+            // drive mode switching
+                        if(gamepad1.y){
+                            mdswitch*=-1;
+                        }
 
-                //slowmode button
-            if(gamepad1.right_bumper){
-                smode*=-1;
-            }
-            // drivemode button
-            if(gamepad1.y){
-                mdswitch*=-1;
-            }
+                        if(mdswitch==1){
+                            driveMethods.driveTurn();
+                        }else{
+                            driveMethods.driveTank();
+                        }
+                                //slowmode button
+                                if(gamepad1.right_bumper){
+                                    smode*=-1;
+                                }
 
-            //lift motor power and thing
+                                    //power delivery
+                                    if(smode==1) {
+                                        leftDrive.setPower(leftPower);
+                                        rightDrive.setPower(rightPower);
+                                    }else{
+                                        leftDrive.setPower(leftPower*.5);
+                                        rightDrive.setPower(rightPower*.5);
+                                    }
+
+        // lift motor power and thing
             if(gamepad2.left_bumper){
                 liftMotor.setPower(liftPower*1);
             }else{
@@ -74,39 +80,14 @@ public class BasicOpMode_Linear extends robotmanager {
                 }
             }
 
-
-
-
-
-
-            if(mdswitch==1){
-                driveMethods.driveTurn();
+        //boxservo
+            if (gamepad1.b) {
+            boxMotor.setPower(-1);
             }else{
-                driveMethods.driveTank();
-            }
+                boxMotor.setPower(0);
+        }
 
-
-
-
-                        //boxservo
-
-                    if (gamepad1.b) {
-                        boxMotor.setPower(1);
-                    }else{
-                     boxMotor.setPower(0);
-                    }
-
-
-                        //power in wheels
-
-                    if(smode==1) {
-                        leftDrive.setPower(leftPower);
-                        rightDrive.setPower(rightPower);
-                    }else{
-                        leftDrive.setPower(leftPower*.5);
-                        rightDrive.setPower(rightPower*.5);
-                    }
-                        //boxext buttons
+        //boxext buttons
             if(gamepad2.a){
                 boxext.setPower(1);
             }else {
@@ -115,7 +96,7 @@ public class BasicOpMode_Linear extends robotmanager {
                 }else {
                     boxext.setPower(0);
                 }
-            }
+        }
 
 
             // Show the elapsed game time and wheel power.

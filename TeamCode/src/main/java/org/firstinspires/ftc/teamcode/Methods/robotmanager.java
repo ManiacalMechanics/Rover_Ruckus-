@@ -31,6 +31,7 @@ public class robotmanager extends LinearOpMode{
 
     public void Init()
     {
+        liftPower=1;
         leftDrive = hardwareMap.dcMotor.get("left_drive");
         rightDrive=hardwareMap.dcMotor.get("right_drive");
         boxMotor = hardwareMap.get(CRServo.class, "box_Motor");
