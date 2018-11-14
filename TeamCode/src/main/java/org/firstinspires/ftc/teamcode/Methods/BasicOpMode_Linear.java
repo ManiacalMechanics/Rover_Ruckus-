@@ -102,8 +102,8 @@ public class BasicOpMode_Linear extends robotmanager {
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
+            telemetry.addData("variable status","smode, mdswitch",smode,mdswitch);
             telemetry.update();
-            telemetry.addData ("Slow Mode Status",smode);
         }
     }
 }
