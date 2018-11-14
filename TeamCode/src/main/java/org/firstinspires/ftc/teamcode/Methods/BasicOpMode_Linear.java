@@ -48,7 +48,6 @@ public class BasicOpMode_Linear extends robotmanager {
 
     @Override
     public void runOpMode() {
-            Init();
         waitForStart();
         runtime.reset();
 
@@ -81,11 +80,9 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
             if(mdswitch==1){
-                driveMethods.driveTurn(drive,turn);
+                driveMethods.driveTurn();
             }else{
-
-                leftPower  = gamepad1.left_stick_y ;
-                rightPower = gamepad1.right_stick_y ;
+                driveMethods.driveTank();
             }
 
 
