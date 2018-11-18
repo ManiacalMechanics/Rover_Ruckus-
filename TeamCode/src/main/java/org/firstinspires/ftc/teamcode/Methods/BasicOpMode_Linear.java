@@ -41,11 +41,11 @@ public class BasicOpMode_Linear extends robotmanager {
     @Override
     public void runOpMode() {
 
+        Init();
         waitForStart();
         runtime.reset();
 
         while (opModeIsActive()) {
-            Init();
             // drive mode switching
                         if(gamepad1.y){
                             mdswitch*=-1;

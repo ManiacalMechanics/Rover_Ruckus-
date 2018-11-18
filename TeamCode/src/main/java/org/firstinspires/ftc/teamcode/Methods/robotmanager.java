@@ -13,19 +13,20 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 public class robotmanager extends LinearOpMode{
 
-    public ElapsedTime runtime = new ElapsedTime();
-    public DcMotor leftDrive = null;
-    public DcMotor rightDrive = null;
-    public CRServo boxMotor = null;
-    public DcMotor boxext =null;
-    public DcMotor liftMotor = null;
+    ElapsedTime runtime = new ElapsedTime();
+
     double drive = -gamepad1.left_stick_y;
     double turn  =  gamepad1.right_stick_x;
-    public int smode=1;
-    public int mdswitch = 1;
-    double leftPower;
+    int smode=1;
+    int mdswitch = 1;
     double liftPower;
-    double rightPower;
+    double leftPower=0;
+    double rightPower=0;
+    DcMotor leftDrive;
+    DcMotor rightDrive;
+    CRServo boxMotor = null;
+    DcMotor boxext =null;
+    DcMotor liftMotor = null;
     driveMethods driveMethods=new driveMethods();
 
 
