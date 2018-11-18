@@ -3,25 +3,21 @@ package org.firstinspires.ftc.teamcode.Methods;
 import com.qualcomm.robotcore.util.Range;
 
 public  class driveMethods extends robotmanager{
-    void driveTurn(){
-        while(opModeIsActive()) {
-            drive = -gamepad1.left_stick_y;
-            turn = gamepad1.right_stick_x;
+     double[] driveTurn(float leftstick, float rightstick){
+
+            drive = leftstick;
+            turn = rightstick;
             leftPower = Range.clip(drive + turn, -1.0, 1.0);
             rightPower = Range.clip(drive + turn, -1.0, 1.0);
-            rightDrive.setPower(rightPower);
-            leftDrive.setPower(leftPower);
-
+    return new double[]{rightPower,leftPower};
         }
-    }
-    void driveTank() {
-while(opModeIsActive()){
-            leftPower = gamepad1.left_stick_y;
-            rightPower = gamepad1.right_stick_y;
-    rightDrive.setPower(rightPower);
-    leftDrive.setPower(leftPower);
+
+    double[] driveTank(float leftstick,float rightstick) {
+
+            leftPower = leftstick;
+            rightPower = rightstick;
+        return new double[]{rightPower,leftPower};
 
 
-}
     }
 }

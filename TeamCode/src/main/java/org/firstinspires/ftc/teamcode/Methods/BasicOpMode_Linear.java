@@ -41,6 +41,8 @@ public class BasicOpMode_Linear extends robotmanager {
     @Override
     public void runOpMode() {
 
+        int smode=1;
+        int mdswitch = 1;
         Init();
         waitForStart();
         runtime.reset();
@@ -54,9 +56,13 @@ public class BasicOpMode_Linear extends robotmanager {
                         }
 
                         if(mdswitch==1){
-                            driveMethods.driveTurn();
+                          double epic[]=driveMethods.driveTank(gamepad1.left_stick_y,gamepad1.right_stick_y);
+                            rightPower=epic[0];
+                            leftPower=epic[1];
                         }else{
-                            driveMethods.driveTank();
+                            double epic[]=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
+                            rightPower=epic[0];
+                            leftPower=epic[1];
                         }
                                 //slowmode button
                                 if(gamepad1.right_bumper){
@@ -68,8 +74,8 @@ public class BasicOpMode_Linear extends robotmanager {
                                         leftDrive.setPower(leftPower);
                                         rightDrive.setPower(rightPower);
                                     }else{
-                                        leftDrive.setPower(leftPower*.5);
-                                        rightDrive.setPower(rightPower*.5);
+                                        leftDrive.setPower(leftPower*.75);
+                                        rightDrive.setPower(rightPower*.75);
                                     }
 
         // lift motor power and thing

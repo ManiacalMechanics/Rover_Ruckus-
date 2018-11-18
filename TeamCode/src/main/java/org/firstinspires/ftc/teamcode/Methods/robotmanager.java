@@ -17,8 +17,6 @@ public class robotmanager extends LinearOpMode{
 
     double drive=0;
     double turn=0;
-    int smode=1;
-    int mdswitch = 1;
     double liftPower;
     double leftPower=0;
     double rightPower=0;
