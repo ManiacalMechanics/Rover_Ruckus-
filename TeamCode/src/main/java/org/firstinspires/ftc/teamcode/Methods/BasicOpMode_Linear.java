@@ -32,7 +32,7 @@ package org.firstinspires.ftc.teamcode.Methods;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-@TeleOp(name="Basic: Linear OpMode", group="Linear Opmode")
+@TeleOp(name="Basic: Linear OpModexd", group="Linear Opmode")
 //@Disabled
 public class BasicOpMode_Linear extends robotmanager {
 
@@ -46,6 +46,8 @@ public class BasicOpMode_Linear extends robotmanager {
         runtime.reset();
 
         while (opModeIsActive()) {
+            driveMethods driveMethods=new driveMethods();
+
             // drive mode switching
                         if(gamepad1.y){
                             mdswitch*=-1;

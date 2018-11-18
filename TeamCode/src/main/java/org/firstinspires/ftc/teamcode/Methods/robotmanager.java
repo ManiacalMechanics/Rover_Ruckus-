@@ -15,8 +15,8 @@ public class robotmanager extends LinearOpMode{
 
     ElapsedTime runtime = new ElapsedTime();
 
-    double drive = -gamepad1.left_stick_y;
-    double turn  =  gamepad1.right_stick_x;
+    double drive=0;
+    double turn=0;
     int smode=1;
     int mdswitch = 1;
     double liftPower;
@@ -27,7 +27,8 @@ public class robotmanager extends LinearOpMode{
     CRServo boxMotor = null;
     DcMotor boxext =null;
     DcMotor liftMotor = null;
-    driveMethods driveMethods=new driveMethods();
+
+
 
 
     public void Init()
