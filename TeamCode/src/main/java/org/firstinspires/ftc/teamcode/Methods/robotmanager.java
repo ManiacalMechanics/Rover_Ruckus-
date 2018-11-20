@@ -15,11 +15,7 @@ public class robotmanager extends LinearOpMode{
 
     ElapsedTime runtime = new ElapsedTime();
 
-    double drive=0;
-    double turn=0;
     double liftPower;
-    double leftPower=0;
-    double rightPower=0;
     double Power[];
     DcMotor leftDrive;
     DcMotor rightDrive;
