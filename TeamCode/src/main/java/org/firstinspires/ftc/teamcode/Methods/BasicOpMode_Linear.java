@@ -66,7 +66,7 @@ public class BasicOpMode_Linear extends robotmanager {
                                 }
 
                                     //power delivery
-                                    if(smode==1) {
+                                    if(smode==1){
                                         leftDrive.setPower(Power[0]);
                                         rightDrive.setPower(Power[1]);
                                     }else{
