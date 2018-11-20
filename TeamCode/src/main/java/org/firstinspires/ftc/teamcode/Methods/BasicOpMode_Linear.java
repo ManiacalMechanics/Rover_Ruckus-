@@ -56,13 +56,9 @@ public class BasicOpMode_Linear extends robotmanager {
                         }
 
                         if(mdswitch==1){
-                          double epic[]=driveMethods.driveTank(gamepad1.left_stick_y,gamepad1.right_stick_y);
-                            rightPower=epic[0];
-                            leftPower=epic[1];
+                            Power=driveMethods.driveTank(gamepad1.left_stick_y,gamepad1.right_stick_y);
                         }else{
-                            double epic[]=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
-                            rightPower=epic[0];
-                            leftPower=epic[1];
+                            Power=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
                         }
                                 //slowmode button
                                 if(gamepad1.right_bumper){
@@ -71,11 +67,11 @@ public class BasicOpMode_Linear extends robotmanager {
 
                                     //power delivery
                                     if(smode==1) {
-                                        leftDrive.setPower(leftPower);
-                                        rightDrive.setPower(rightPower);
+                                        leftDrive.setPower(Power[0]);
+                                        rightDrive.setPower(Power[1]);
                                     }else{
-                                        leftDrive.setPower(leftPower*.75);
-                                        rightDrive.setPower(rightPower*.75);
+                                        leftDrive.setPower(Power[0]*0.75);
+                                        rightDrive.setPower(Power[1]*0.75);
                                     }
 
         // lift motor power and thing
@@ -110,8 +106,8 @@ public class BasicOpMode_Linear extends robotmanager {
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
-            telemetry.addData("Motors", "left (%.2f), right (%.2f)", leftPower, rightPower);
-            telemetry.addData("variable status","smode, mdswitch",smode,mdswitch);
+            telemetry.addData("Motors", "left (%.2f), right (%.2f)", Power[0], Power[1]);
+            telemetry.addData("variable status","smode, mdswitch"+smode+mdswitch);
             telemetry.update();
         }
     }

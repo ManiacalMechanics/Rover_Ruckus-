@@ -20,6 +20,7 @@ public class robotmanager extends LinearOpMode{
     double liftPower;
     double leftPower=0;
     double rightPower=0;
+    double Power[];
     DcMotor leftDrive;
     DcMotor rightDrive;
     CRServo boxMotor = null;
