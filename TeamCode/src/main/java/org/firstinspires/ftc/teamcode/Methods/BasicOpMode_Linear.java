@@ -104,6 +104,11 @@ public class BasicOpMode_Linear extends robotmanager {
         }
 
 
+
+        //boxpitch
+            //push stick up and the pitch goes up until desired position same with down
+            
+
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.addData("Motors", "left (%.2f), right (%.2f)", Power[0], Power[1]);

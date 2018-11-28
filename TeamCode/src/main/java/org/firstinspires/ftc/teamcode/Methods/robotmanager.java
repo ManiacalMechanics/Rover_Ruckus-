@@ -22,6 +22,7 @@ public class robotmanager extends LinearOpMode{
     DcMotor boxMotor = null;
     DcMotor boxext =null;
     DcMotor liftMotor = null;
+    DcMotor boxPitch =null;
 
 
 
@@ -34,6 +35,7 @@ public class robotmanager extends LinearOpMode{
         boxMotor = hardwareMap.get(DcMotor.class, "box_Motor");
         boxext=hardwareMap.dcMotor.get("boxext");
         liftMotor=hardwareMap.dcMotor.get("lift_Motor");
+        boxPitch=hardwareMap.dcMotor.get("box_Pitch");
         //sets direction of wheels
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
