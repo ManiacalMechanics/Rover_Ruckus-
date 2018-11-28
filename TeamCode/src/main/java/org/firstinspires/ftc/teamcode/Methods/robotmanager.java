@@ -19,7 +19,7 @@ public class robotmanager extends LinearOpMode{
     double Power[];
     DcMotor leftDrive;
     DcMotor rightDrive;
-    CRServo boxMotor = null;
+    DcMotor boxMotor = null;
     DcMotor boxext =null;
     DcMotor liftMotor = null;
 
@@ -31,7 +31,7 @@ public class robotmanager extends LinearOpMode{
         liftPower=1;
         leftDrive = hardwareMap.dcMotor.get("left_drive");
         rightDrive=hardwareMap.dcMotor.get("right_drive");
-        boxMotor = hardwareMap.get(CRServo.class, "box_Motor");
+        boxMotor = hardwareMap.get(DcMotor.class, "box_Motor");
         boxext=hardwareMap.dcMotor.get("boxext");
         liftMotor=hardwareMap.dcMotor.get("lift_Motor");
         //sets direction of wheels
