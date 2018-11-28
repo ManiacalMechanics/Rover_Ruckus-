@@ -105,6 +105,8 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
 
+
+
         //boxpitch
             //push stick up and the pitch goes up until desired position same with down
 
