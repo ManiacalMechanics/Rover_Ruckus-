@@ -61,7 +61,7 @@ public class BasicOpMode_Linear extends robotmanager {
                             Power=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
                         }
                                 //slowmode button
-                                if(gamepad1.right_bumper){
+                                if(gamepad1.b){
                                     smode*=-1;
                                 }
 
