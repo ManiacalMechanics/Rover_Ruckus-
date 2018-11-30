@@ -61,7 +61,7 @@ public class BasicOpMode_Linear extends robotmanager {
                             Power=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
                         }
                                 //slowmode button
-                                if(gamepad1.b){
+                                if(gamepad1.x){
                                     smode*=-1;
                                 }
 
@@ -102,7 +102,7 @@ public class BasicOpMode_Linear extends robotmanager {
             if(gamepad2.a){
                 boxext.setPower(1);
             }else {
-                if(gamepad2.b){
+                if(gamepad2.x){
                     boxext.setPower(-1);
                 }else {
                     boxext.setPower(0);
