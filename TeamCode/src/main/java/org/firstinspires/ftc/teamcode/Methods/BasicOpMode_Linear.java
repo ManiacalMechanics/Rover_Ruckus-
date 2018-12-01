@@ -30,7 +30,7 @@
 package org.firstinspires.ftc.teamcode.Methods;
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
+import java.util.concurrent.TimeUnit;
 
 @TeleOp(name="Basic: Linear OpModexd", group="Linear Opmode")
 //@Disabled
@@ -40,23 +40,38 @@ public class BasicOpMode_Linear extends robotmanager {
 
     @Override
     public void runOpMode() {
-
+        boolean listenery,residualy=false;
         int smode=1;
         int mdswitch = 1;
         Init();
         waitForStart();
         runtime.reset();
+        keyrelease keyrelease=new keyrelease();
 
         while (opModeIsActive()) {
             driveMethods driveMethods=new driveMethods();
 
             // drive mode switching
-                        if(gamepad1.y){
+
+
+            boxPitch.setPower(gamepad2.right_stick_x);
+
+
+
+            //key listener
+            if(gamepad1.y){
+                listenery=true;
+                residualy=true;
+            }else{
+                listenery=false;
+            }
+                        if(listenery==false&&residualy==true){
                             mdswitch*=-1;
+                            residualy=false;
                         }
 
                         if(mdswitch==1){
-                            Power=driveMethods.driveTank(gamepad1.left_stick_y,gamepad1.right_stick_y);
+                            Power=driveMethods.driveTank(gamepad1.right_stick_y,gamepad1.left_stick_y);
                         }else{
                             Power=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
                         }
@@ -86,16 +101,10 @@ public class BasicOpMode_Linear extends robotmanager {
             }
 
         //boxservo
-            if (gamepad1.b) {
+            if (gamepad2.b) {
             boxMotor.setPower(-1);
             }else{
                 boxMotor.setPower(0);
-        }
-
-        if (gamepad1.y){
-                            boxMotor.setPower(1);
-        }else{
-                            boxMotor.setPower(0);
         }
 
         //boxext buttons

@@ -72,8 +72,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="Pushbot: Auto Drive By Gyro", group="Pushbot")
-@Disabled
+@Autonomous(name="Pushbot: Auto xdxdxdxdxdxdDrive By Gyro", group="Pushbot")
+
 public class PushbotAutoDriveByGyro_Linear extends robotmanager{
 
     /* Declare OpMode members. */
