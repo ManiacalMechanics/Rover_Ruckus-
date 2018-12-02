@@ -73,7 +73,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @Autonomous(name="Pushbot: Auto xdxdxdxdxdxdDrive By Gyro", group="Pushbot")
-
+@Disabled
 public class PushbotAutoDriveByGyro_Linear extends robotmanager{
 
     /* Declare OpMode members. */

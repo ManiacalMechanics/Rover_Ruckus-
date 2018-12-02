@@ -1,8 +1,12 @@
 package org.firstinspires.ftc.teamcode.Methods;
 
-public class Red_Ball_Auto extends PushbotAutoDriveByGyro_Linear {
 
-    
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
+@Autonomous()
+public class Red_Ball_Auto extends robotmanager {
+
+
 
 
 
