@@ -40,22 +40,21 @@ public class BasicOpMode_Linear extends robotmanager {
 
     @Override
     public void runOpMode() {
-        boolean listenery,residualy=false;
-        int smode=1;
+        boolean listenery, residualy = false;
+        int smode = 1;
         int mdswitch = 1;
         Init();
         waitForStart();
         runtime.reset();
-        keyrelease keyrelease=new keyrelease();
+        keyrelease keyrelease = new keyrelease();
 
         while (opModeIsActive()) {
-            driveMethods driveMethods=new driveMethods();
+            driveMethods driveMethods = new driveMethods();
 
             // drive mode switching
 
 
             boxPitch.setPower(gamepad2.right_stick_x);
-
 
 
             //key listener
@@ -76,53 +75,59 @@ public class BasicOpMode_Linear extends robotmanager {
                             keyrelease.keyreleasecom();
                         }
 
-                        if(mdswitch==1){
-                            Power=driveMethods.driveTank(gamepad1.right_stick_y,gamepad1.left_stick_y);
-                        }else{
-                            Power=driveMethods.driveTurn(gamepad1.left_stick_y,gamepad1.right_stick_x);
-                        }
-                                //slowmode button
-                                if(gamepad1.x){
-                                    smode*=-1;
-                                }
+            if (mdswitch == 1) {
+                Power = driveMethods.driveTank(gamepad1.right_stick_y, gamepad1.left_stick_y);
+            } else {
+                Power = driveMethods.driveTurn(gamepad1.left_stick_y, gamepad1.right_stick_x);
+            }
+            //slowmode button
+            if (gamepad1.x) {
+                smode *= -1;
+            }
 
-                                    //power delivery
-                                    if(smode==1){
-                                        leftDrive.setPower(Power[0]);
-                                        rightDrive.setPower(Power[1]);
-                                    }else{
-                                        leftDrive.setPower(Power[0]*0.75);
-                                        rightDrive.setPower(Power[1]*0.75);
-                                    }
+            //power delivery
+            if (smode == 1) {
+                leftDrive.setPower(Power[0]);
+                rightDrive.setPower(Power[1]);
+            } else {
+                leftDrive.setPower(Power[0] * 0.75);
+                rightDrive.setPower(Power[1] * 0.75);
+            }
 
-        // lift motor power and thing
-            if(gamepad2.left_bumper){
-                liftMotor.setPower(liftPower*1);
-            }else{
-                if (gamepad2.right_bumper){
-                    liftMotor.setPower(liftPower*-1);
-                }else{
+            // lift motor power and thing
+            if (gamepad2.left_bumper) {
+                liftMotor.setPower(liftPower * 1);
+            } else {
+                if (gamepad2.right_bumper) {
+                    liftMotor.setPower(liftPower * -1);
+                } else {
                     liftMotor.setPower(0);
                 }
             }
 
-        //boxservo
+            //boxservo
             if (gamepad2.b) {
-            boxMotor.setPower(-1);
-            }else{
+                boxMotor.setPower(-1);
+            } else {
                 boxMotor.setPower(0);
+            }
+
+            //boxext buttons
+            if (gamepad2.a) {
+                boxext.setPower(1);
+            } else {
+                boxext.setPower(0);
+            }
+
+            if (gamepad2.x) {
+                boxext.setPower(-1);
+            } else {
+                boxext.setPower(0);
+            }
+
+
         }
 
-        //boxext buttons
-            if(gamepad2.a){
-                boxext.setPower(1);
-            }else {
-                if(gamepad2.x){
-                    boxext.setPower(-1);
-                }else {
-                    boxext.setPower(0);
-                }
-        }
 
 
 
@@ -139,4 +144,3 @@ public class BasicOpMode_Linear extends robotmanager {
             telemetry.update();
         }
     }
-}
