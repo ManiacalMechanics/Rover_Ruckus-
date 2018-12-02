@@ -31,8 +31,6 @@ public class robotmanager extends LinearOpMode{
     public void Init()
     {
         // Set all motors to zero power
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
         
         liftPower=1;
         leftDrive = hardwareMap.dcMotor.get("left_drive");
@@ -50,7 +48,4 @@ public class robotmanager extends LinearOpMode{
         
     }
     public void runOpMode(){ }
-
-    protected void init(HardwareMap hardwareMap) {
-    }
 }
