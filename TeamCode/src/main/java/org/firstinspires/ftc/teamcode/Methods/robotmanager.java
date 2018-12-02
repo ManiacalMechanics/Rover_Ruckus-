@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
@@ -29,6 +30,10 @@ public class robotmanager extends LinearOpMode{
 
     public void Init()
     {
+        // Set all motors to zero power
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+        
         liftPower=1;
         leftDrive = hardwareMap.dcMotor.get("left_drive");
         rightDrive=hardwareMap.dcMotor.get("right_drive");
@@ -42,7 +47,10 @@ public class robotmanager extends LinearOpMode{
 
         telemetry.addData("Status", "Initialized");
         telemetry.update();
+        
     }
     public void runOpMode(){ }
 
+    protected void init(HardwareMap hardwareMap) {
+    }
 }
