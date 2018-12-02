@@ -113,7 +113,7 @@ public class BasicOpMode_Linear extends robotmanager {
                 boxext.setPower(0);
             }
 
-            if (gamepad2.x) {
+            if (gamepad2.y) {
                 boxext.setPower(-1);
             } else {
                 boxext.setPower(0);
