@@ -22,7 +22,7 @@ public class AutoBlueBall extends robotmanager{
     @Override
     public void runOpMode() {
 
-        robot.init(hardwareMap);
+
 
         telemetry.addData("Status", "Reseting Enconders ");
         telemetry.update();
