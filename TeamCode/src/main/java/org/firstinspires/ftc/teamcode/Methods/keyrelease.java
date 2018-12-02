@@ -4,17 +4,25 @@ public class keyrelease {
 
     boolean listener,residual=false;
 
+    boolean keyrelease(boolean event){
 
-    void whenkeypress(boolean event){
-
+        boolean xd;
         if(event) {
             listener = true;
             residual = true;
         }else{
             listener = false;
         }
+        if(listener==false&&residual==true){
+            xd =true;
+            return xd;
+        }else{
+            xd=false;
+            return xd;
+        }
+
     }
-    void whenkeyrelease(){
+    void keyreleasecom(){
         residual=false;
     }
 }

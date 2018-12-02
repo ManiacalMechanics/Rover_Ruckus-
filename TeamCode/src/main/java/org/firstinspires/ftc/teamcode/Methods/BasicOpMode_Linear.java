@@ -59,15 +59,21 @@ public class BasicOpMode_Linear extends robotmanager {
 
 
             //key listener
-            if(gamepad1.y){
+            /*if(gamepad1.y){
                 listenery=true;
                 residualy=true;
             }else{
                 listenery=false;
-            }
-                        if(listenery==false&&residualy==true){
+            }*/
+
+
+                        /*if(listenery==false&&residualy==true){
                             mdswitch*=-1;
                             residualy=false;
+                        }*/
+                        if(keyrelease.keyrelease(gamepad1.y)){
+                            mdswitch*=-1;
+                            keyrelease.keyreleasecom();
                         }
 
                         if(mdswitch==1){
