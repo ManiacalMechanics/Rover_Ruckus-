@@ -5,16 +5,21 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Red_Ball_Auto", group = "Autonomous")
+import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
+
+
+@Autonomous(name = "AutoRedBall", group = "AutoRedBall")
+
 public class Red_Ball_Auto extends robotmanager {
 
-    robotmanager robot = new robotmanager();
+    /*Declare OpMode members */
+
+
     private ElapsedTime runtime = new ElapsedTime();
-    Object robotmanager;
+
 
     @Override
     public void runOpMode() {
-
         Init();
 
 
@@ -23,6 +28,8 @@ public class Red_Ball_Auto extends robotmanager {
 
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
@@ -43,14 +50,37 @@ public class Red_Ball_Auto extends robotmanager {
 
         // set both motors to 25% power. Movement will start.
         while (opModeIsActive()) {
-            if (leftDrive.getCurrentPosition() < 5000) {
-                leftDrive.setPower(1);
+
+            while(liftMotor.getCurrentPosition()<=100)
+            {
+                liftMotor.setPower(1);
+                telemetry.addData("Position",liftMotor.getCurrentPosition());
+                telemetry.update();
             }
-            if (rightDrive.getCurrentPosition() < 200) {
-                rightDrive.setPower(0);
+
+
+
+
+
+            while(liftMotor.getCurrentPosition() >= 100) {
+                liftMotor.setPower(0);
+                while (leftDrive.getCurrentPosition() < 5000 && rightDrive.getCurrentPosition() < 2000) {
+                    leftDrive.setPower(1);
+                    rightDrive.setPower(1);
+                }
+
+                while (rightDrive.getCurrentPosition() >= 2000 && leftDrive.getCurrentPosition() < 5000) {
+                    rightDrive.setPower(0);
+                    leftDrive.setPower(1);
+                }
+
             }
 
         }
+
+
     }
 }
+
+
 
