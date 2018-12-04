@@ -69,21 +69,6 @@ public class AutoBlueBall extends robotmanager {
         }
 
 
-        if (liftMotor.getCurrentPosition() < -10) {
-            telemetry.addData("ughhhh","xd");
-            telemetry.update();
-            liftMotor.setPower(0);
-            if (leftDrive.getCurrentPosition() < 50 && rightDrive.getCurrentPosition() < 2) {
-                leftDrive.setPower(1);
-                rightDrive.setPower(1);
-            }
-
-            if (rightDrive.getCurrentPosition() >= 2 && leftDrive.getCurrentPosition() < 50) {
-                rightDrive.setPower(0);
-                leftDrive.setPower(1);
-            }
-        }
-
     }
 }
 
