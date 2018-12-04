@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
 @Autonomous(name = "AutoDepot", group = "AutoDepot")
 
-public class AutoBlueBall extends robotmanager {
+public class AutoDepot extends robotmanager {
 
     /*Declare OpMode members */
 
