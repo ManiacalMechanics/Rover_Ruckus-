@@ -8,9 +8,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
 
-@Autonomous(name = "AutoDepot", group = "AutoDepot")
+@Autonomous(name = "AutoCrater", group = "AutoCrater")
 
-public class AutoDepot extends robotmanager {
+public class AutoCrater extends robotmanager {
 
     /*Declare OpMode members */
 
