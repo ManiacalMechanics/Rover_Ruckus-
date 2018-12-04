@@ -15,17 +15,21 @@ public class Red_Ball_Auto extends robotmanager {
     @Override
     public void runOpMode() {
 
+        Init();
+
 
         telemetry.addData("Status", "Reseting Enconders ");
         telemetry.update();
 
-        robot.leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0", "Starting at %7d :%7d",
-                robot.leftDrive.getCurrentPosition(),
-                robot.rightDrive.getCurrentPosition());
+                leftDrive.getCurrentPosition(),
+                rightDrive.getCurrentPosition());
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -36,16 +40,17 @@ public class Red_Ball_Auto extends robotmanager {
 
         // set left motor to run for 5000 encoder counts.
 
-        leftDrive.setTargetPosition(-5000);
 
         // set both motors to 25% power. Movement will start.
+        while (opModeIsActive()) {
+            if (leftDrive.getCurrentPosition() < 5000) {
+                leftDrive.setPower(1);
+            }
+            if (rightDrive.getCurrentPosition() < 200) {
+                rightDrive.setPower(0);
+            }
 
-        leftDrive.setPower(-0.25);
-        rightDrive.setPower(-0.25);
-
-        stop();
-
-
+        }
     }
 }
 
