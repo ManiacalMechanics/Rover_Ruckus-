@@ -14,7 +14,6 @@ public class AutoDepot extends robotmanager {
 
     /*Declare OpMode members */
 
-
     private ElapsedTime runtime = new ElapsedTime();
 
 
