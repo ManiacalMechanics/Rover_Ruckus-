@@ -49,6 +49,15 @@ public class AutoBlueBall extends robotmanager {
 
 
         // set both motors to 25% power. Movement will start.
+        waitForStart();
+
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
         while (opModeIsActive()) {
 
             while(liftMotor.getCurrentPosition()<=100)
@@ -73,7 +82,8 @@ public class AutoBlueBall extends robotmanager {
                     rightDrive.setPower(0);
                     leftDrive.setPower(1);
                 }
-
+                rightDrive.setPower(0);
+                leftDrive.setPower(0);
             }
 
         }
