@@ -51,21 +51,31 @@ public class AutoBlueBall extends robotmanager {
         // set both motors to 25% power. Movement will start.
         while (opModeIsActive()) {
 
+            while(liftMotor.getCurrentPosition()<=100)
+            {
+              liftMotor.setPower(1);
+              telemetry.addData("Position",liftMotor.getCurrentPosition());
+              telemetry.update();
+            }
 
-            liftMotor.setPower(1);
 
-            if (liftMotor.getCurrentPosition() > 10) {
+
+
+
+            while(liftMotor.getCurrentPosition() >= 100) {
                 liftMotor.setPower(0);
-                if (leftDrive.getCurrentPosition() < 50 && rightDrive.getCurrentPosition() < 2) {
+                while (leftDrive.getCurrentPosition() < 5000 && rightDrive.getCurrentPosition() < 2000) {
                     leftDrive.setPower(1);
                     rightDrive.setPower(1);
                 }
 
-                if (rightDrive.getCurrentPosition() >= 2 && leftDrive.getCurrentPosition() < 50) {
+                while (rightDrive.getCurrentPosition() >= 2000 && leftDrive.getCurrentPosition() < 5000) {
                     rightDrive.setPower(0);
                     leftDrive.setPower(1);
                 }
+
             }
+
         }
 
 
