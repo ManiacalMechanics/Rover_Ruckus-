@@ -69,7 +69,7 @@ public class AutoBlueBall extends robotmanager {
         }
 
 
-        if (liftMotor.getCurrentPosition() > -10) {
+        if (liftMotor.getCurrentPosition() < -10) {
             telemetry.addData("ughhhh","xd");
             telemetry.update();
             liftMotor.setPower(0);
