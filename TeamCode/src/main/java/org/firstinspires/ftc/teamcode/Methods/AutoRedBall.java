@@ -28,13 +28,11 @@
  */
 
 package org.firstinspires.ftc.teamcode.Methods;
-
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
@@ -44,107 +42,85 @@ public class AutoRedBall extends robotmanager {
 
     /* Declare OpMode members. */
     private ElapsedTime     runtime = new ElapsedTime();
-
-
     static final double     FORWARD_SPEED = 0.6;
     static final double     TURN_SPEED    = 1;
 
+
     @Override
     public void runOpMode() {
-Init();
-        /*
-         * Initialize the drive system variables.
-         * The init() method of the hardware class does all the work here
-         */
+        Init();        // The init() method of the hardware class does all the work here
 
-        // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Ready to run");    //
-        telemetry.update();
-
-        // Wait for the game to start (driver presses PLAY)
-        waitForStart();
-
-        // Step through each leg of the path, ensuring that the Auto mode has not been stopped along the way
-
-        //Step 1: move lift motor down
-
-        while (runtime.seconds() < 2) {
-            liftMotor.setPower(2);
-
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            // Send telemetry message to signify robot waiting;
+            telemetry.addData("Status", "Ready to run");    //
             telemetry.update();
-        }
+
+            // Wait for the game to start (driver presses PLAY)
+            waitForStart();
+
+
+            //Step 1: move lift motor down
+            while (runtime.seconds() < 2)
+            {
+                liftMotor.setPower(2);
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+            }
 
             // Step 2:  Spin right for 1.3 seconds
+            runtime.reset();
+            while ( runtime.seconds() < .5)
+            {
+                leftDrive.setPower(TURN_SPEED);
+                rightDrive.setPower(-TURN_SPEED);
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+            }
 
-        runtime.reset();
-        while ( runtime.seconds() < .5) {
+    //        leftDrive.setPower(0);
+    //        rightDrive.setPower(0);
 
-            leftDrive.setPower(TURN_SPEED);
-            rightDrive.setPower(-TURN_SPEED);
+            //Step 3 move forward oh so slightly
+            while (runtime.seconds() < .25)
+            {
+                leftDrive.setPower(FORWARD_SPEED);
+                rightDrive.setPower(FORWARD_SPEED);
+                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
 
+            }
 
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
+            // Step 4 turn left slightly to straighten up robot
+            while (runtime.seconds() < 2)
+            {
+                    leftDrive.setPower(-TURN_SPEED);
+                    rightDrive.setPower(TURN_SPEED);
+                    telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+            }
 
-//        leftDrive.setPower(0);
-//        rightDrive.setPower(0);
-
-        //Step 3 move forward oh so slightly
-        while (runtime.seconds() < .25) {
+            //Step 5 move straight for the crater
             leftDrive.setPower(FORWARD_SPEED);
             rightDrive.setPower(FORWARD_SPEED);
+            runtime.reset();
 
-            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
+                while (opModeIsActive() && (runtime.seconds() < 3.0))
+                {
+                    telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
 
-        }
 
-        // Step 4 turn left slightly to straighten up robot
-        while (runtime.seconds() < 2) {
-                leftDrive.setPower(-TURN_SPEED);
-                rightDrive.setPower(TURN_SPEED);
+            //Step 6 spit out marker
+            boxMotor.setPower(1);
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() < 2.0))
+                {
+                    telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                    telemetry.update();
+                }
 
-                telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
-        }
 
-        //Step 5 move straight for the crater
-        leftDrive.setPower(FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 3.0)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-            telemetry.update();
-        }
-
-        //Step 6 spit out marker
-        boxMotor.setPower(1);
-        runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < 2.0)) {
-            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+            telemetry.addData("Path", "Complete");
             telemetry.update();
         }
-
-
-
-//        // Step 3:  Drive Backwards for 1 Second
-//        robot.leftDrive.setPower(-FORWARD_SPEED);
-//        robot.rightDrive.setPower(-FORWARD_SPEED);
-//        runtime.reset();
-//        while (opModeIsActive() && (runtime.seconds() < 1.0)) {
-//            telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
-//            telemetry.update();
-//        }
-//
-//        // Step 4:  Stop and close the claw.
-//        robot.leftDrive.setPower(0);
-//        robot.rightDrive.setPower(0);
-
-
-        telemetry.addData("Path", "Complete");
-        telemetry.update();
-        //sleep(1000);
     }
-}
