@@ -8,12 +8,11 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
 
-@Autonomous(name = "AutoBlueBall", group = "AutoBLueBall")
+@Autonomous(name = "AutoDepot", group = "AutoDepot")
 
-public class AutoBlueBall extends robotmanager {
+public class AutoDepot extends robotmanager {
 
     /*Declare OpMode members */
-
 
     private ElapsedTime runtime = new ElapsedTime();
 
