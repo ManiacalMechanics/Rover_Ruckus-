@@ -10,12 +10,12 @@ import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
 @Autonomous(name = "AutoBlueBall", group = "AutoBLueBall")
 
-public class AutoBlueBall extends robotmanager{
+public class AutoBlueBall extends robotmanager {
 
     /*Declare OpMode members */
 
 
-    private ElapsedTime     runtime = new ElapsedTime();
+    private ElapsedTime runtime = new ElapsedTime();
 
 
     @Override
@@ -52,22 +52,40 @@ public class AutoBlueBall extends robotmanager{
         while (opModeIsActive()) {
 
 
-                liftMotor.setPower(1);
+            liftMotor.setPower(1);
 
             if (liftMotor.getCurrentPosition() > 10) {
                 liftMotor.setPower(0);
-                if (leftDrive.getCurrentPosition() < 50&&rightDrive.getCurrentPosition() < 2) {
+                if (leftDrive.getCurrentPosition() < 50 && rightDrive.getCurrentPosition() < 2) {
                     leftDrive.setPower(1);
                     rightDrive.setPower(1);
                 }
+
+                if (rightDrive.getCurrentPosition() >= 2 && leftDrive.getCurrentPosition() < 50) {
+                    rightDrive.setPower(0);
+                    leftDrive.setPower(1);
+                }
             }
-            if (rightDrive.getCurrentPosition() >= 2&& leftDrive.getCurrentPosition()<50) {
+        }
+
+
+        if (liftMotor.getCurrentPosition() > -10) {
+            telemetry.addData("ughhhh","xd");
+            telemetry.update();
+            liftMotor.setPower(0);
+            if (leftDrive.getCurrentPosition() < 50 && rightDrive.getCurrentPosition() < 2) {
+                leftDrive.setPower(1);
+                rightDrive.setPower(1);
+            }
+
+            if (rightDrive.getCurrentPosition() >= 2 && leftDrive.getCurrentPosition() < 50) {
                 rightDrive.setPower(0);
                 leftDrive.setPower(1);
             }
         }
+
     }
-    }
+}
 
 
 
