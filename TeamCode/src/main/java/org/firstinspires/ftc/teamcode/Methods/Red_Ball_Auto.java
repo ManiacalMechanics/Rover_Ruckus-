@@ -46,10 +46,6 @@ public class Red_Ball_Auto extends robotmanager {
         telemetry.addData("Mode", "running");
         telemetry.update();
 
-        // set left motor to run for 5000 encoder counts.
-
-
-        // set both motors to 25% power. Movement will start.
         while (opModeIsActive()) {
 
             while(liftMotor.getCurrentPosition()<=100)
