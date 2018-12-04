@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
-
-@Autonomous(name = "Auto_Red_Ball", group = "AutoRedBall")
+//THIS CLASS IS NOT TO BE USED AS OF RIGHT NOW. IT IS OUTDATED DONT USE
+@Autonomous(name = "Do_Not_Use", group = "AutoRedBall")
 
 public class Red_Ball_Auto extends robotmanager {
 
