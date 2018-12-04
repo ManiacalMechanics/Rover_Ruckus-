@@ -75,11 +75,13 @@ public class BasicOpMode_Linear extends robotmanager {
                             keyrelease.keyreleasecom();
                         }
 
-            if (mdswitch == 1) {
+            if (mdswitch == 1)
+            {
                 Power = driveMethods.driveTank(gamepad1.right_stick_y, gamepad1.left_stick_y);
-            } else {
+            } else
+                {
                 Power = driveMethods.driveTurn(gamepad1.left_stick_y, gamepad1.right_stick_x);
-            }
+                 }
             //slowmode button
             if (gamepad1.x) {
                 smode *= -1;
