@@ -47,5 +47,8 @@ public class robotmanager extends LinearOpMode{
         telemetry.update();
         
     }
-    public void runOpMode(){ }
+    public void runOpMode() throws InterruptedException { }
+
+    public void init(HardwareMap hardwareMap) {
+    }
 }
