@@ -37,6 +37,7 @@ public class Red_Ball_Auto extends robotmanager {
         telemetry.addData("Path0", "Starting at %7d :%7d",
                 leftDrive.getCurrentPosition(),
                 rightDrive.getCurrentPosition());
+                liftMotor.getCurrentPosition();
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
