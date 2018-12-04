@@ -32,6 +32,7 @@ package org.firstinspires.ftc.teamcode.Methods;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
@@ -58,25 +59,23 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
  */
 
 @Autonomous(name="Pushbot: Auto Drive By Time", group="Pushbot")
-@Disabled
-public class AutoRedBall extends LinearOpMode {
+//@Disabled
+public class AutoRedBall extends robotmanager {
 
     /* Declare OpMode members. */
-    robotmanager        robot   = new robotmanager();   // Use a Pushbot's hardware
     private ElapsedTime     runtime = new ElapsedTime();
 
 
     static final double     FORWARD_SPEED = 0.6;
-    static final double     TURN_SPEED    = 0.5;
+    static final double     TURN_SPEED    = 1;
 
     @Override
     public void runOpMode() {
-
+Init();
         /*
          * Initialize the drive system variables.
          * The init() method of the hardware class does all the work here
          */
-        robot.init(hardwareMap);
 
         // Send telemetry message to signify robot waiting;
         telemetry.addData("Status", "Ready to run");    //
@@ -97,16 +96,20 @@ public class AutoRedBall extends LinearOpMode {
 //        }
 
         // Step 2:  Spin right for 1.3 seconds
-        robot.leftDrive.setPower(TURN_SPEED);
-        robot.rightDrive.setPower(-TURN_SPEED);
+
         runtime.reset();
-        while (opModeIsActive() && (runtime.seconds() < .3)) {
+        while ( runtime.seconds() < 3) {
+
+            leftDrive.setPower(TURN_SPEED);
+            rightDrive.setPower(-TURN_SPEED);
+
+
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
 
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
 
 //        // Step 3:  Drive Backwards for 1 Second
 //        robot.leftDrive.setPower(-FORWARD_SPEED);
@@ -124,6 +127,6 @@ public class AutoRedBall extends LinearOpMode {
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
-        sleep(1000);
+        //sleep(1000);
     }
 }
