@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.teamcode.ComponentInterface.HardwarePushbot;
 
 
-@Autonomous(name = "AutoBlueBall", group = "AutoBLueBall")
+@Autonomous(name = "AutoDepot", group = "AutoDepot")
 
 public class AutoBlueBall extends robotmanager {
 
