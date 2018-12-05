@@ -31,19 +31,19 @@ public class AutoRedBall extends robotmanager {
 
 
             //Step 1: move lift motor down
-            while (runtime.seconds() < 5)
+            while (runtime.seconds() < 7.5)
             {
-                liftMotor.setPower(2);
+                liftMotor.setPower(1);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
             }
 
             // Step 2:  Spin right for 1.3 seconds
-            runtime.reset();
-            while ( runtime.seconds() < .3)
+
+            while ( runtime.seconds() < 1)
             {
-                leftDrive.setPower(TURN_SPEED);
-                rightDrive.setPower(-TURN_SPEED);
+                leftDrive.setPower(-TURN_SPEED);
+                rightDrive.setPower(TURN_SPEED);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
             }
@@ -52,7 +52,7 @@ public class AutoRedBall extends robotmanager {
     //        rightDrive.setPower(0);
 
             //Step 3 move forward oh so slightly
-            while (runtime.seconds() < .4)
+            while (runtime.seconds() < .5)
             {
                 leftDrive.setPower(FORWARD_SPEED);
                 rightDrive.setPower(FORWARD_SPEED);
@@ -62,34 +62,39 @@ public class AutoRedBall extends robotmanager {
             }
 
             // Step 4 turn left slightly to straighten up robot
-            while (runtime.seconds() < .7)
+            while (runtime.seconds() < .8)
             {
-                    leftDrive.setPower(-TURN_SPEED);
-                    rightDrive.setPower(TURN_SPEED);
+                    leftDrive.setPower(TURN_SPEED);
+                    rightDrive.setPower(-TURN_SPEED);
                     telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
             }
 
             //Step 5 move straight for the crater
-            leftDrive.setPower(-FORWARD_SPEED);
-            rightDrive.setPower(-FORWARD_SPEED);
+
             runtime.reset();
 
-                while (opModeIsActive() && (runtime.seconds() < 1.0))
+                while (opModeIsActive() && (runtime.seconds() < 1.6))
                 {
+                    leftDrive.setPower(-FORWARD_SPEED);
+                    rightDrive.setPower(-FORWARD_SPEED);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                 }
 
 
             //Step 6 spit out marker
-            boxMotor.setPower(1);
+
             runtime.reset();
-            while (opModeIsActive() && (runtime.seconds() < 2.0))
+            while (opModeIsActive() && (runtime.seconds() < .5))
                 {
+                    boxMotor.setPower(1);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                 }
+
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
 
 
             telemetry.addData("Path", "Complete");
