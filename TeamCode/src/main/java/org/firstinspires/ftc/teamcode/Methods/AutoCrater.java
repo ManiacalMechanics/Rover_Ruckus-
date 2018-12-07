@@ -74,7 +74,7 @@ runtime.reset();
         }
 runtime.reset();
         //Step 5 move straight for the crater
-        while(opModeIsActive() && runtime.seconds() < 0.5){
+        while(opModeIsActive() && runtime.seconds() < 0.3){
             leftDrive.setPower(-FORWARD_SPEED);
             rightDrive.setPower(-FORWARD_SPEED);
 
@@ -98,16 +98,19 @@ runtime.reset();
         }
 runtime.reset();
 
-        while (opModeIsActive() && (runtime.seconds() < 1.0))
+        while (opModeIsActive() && runtime.seconds() < 1.0))
         {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
         }
-
+runtime.reset();
 
         //Step 8 spit out marker
-        boxMotor.setPower(1);
+        while (opModeIsActive() && runtime.seconds() < 1){
+            boxMotor.setPower(1);
+        }
         runtime.reset();
+        boxMotor.setPower(0);
         while (opModeIsActive() && (runtime.seconds() < 2.0))
         {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
