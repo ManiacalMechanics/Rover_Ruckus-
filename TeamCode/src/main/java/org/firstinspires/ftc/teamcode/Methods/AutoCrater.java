@@ -95,6 +95,7 @@ public class AutoCrater extends robotmanager {
             rightDrive.setPower(FORWARD_SPEED);
         }
 
+
         while (opModeIsActive() && (runtime.seconds() < 1.0))
         {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
@@ -102,13 +103,20 @@ public class AutoCrater extends robotmanager {
         }
 
 
-        //Step 6 spit out marker
+        //Step 8 spit out marker
         boxMotor.setPower(1);
         runtime.reset();
         while (opModeIsActive() && (runtime.seconds() < 2.0))
         {
             telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
+        }
+
+
+        //step 9 go backwards
+        while(runtime.seconds() < 1){
+            leftDrive.setPower(FORWARD_SPEED*-1);
+            rightDrive.setPower(FORWARD_SPEED*-1);
         }
 
 
