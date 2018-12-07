@@ -32,7 +32,7 @@ public class AutoCrater extends robotmanager {
 
 
         //Step 1: move lift motor down
-        while (runtime.seconds() < 6)
+        while (runtime.seconds() < 5.6)
         {
             liftMotor.setPower(2);
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
@@ -55,8 +55,8 @@ public class AutoCrater extends robotmanager {
         //Step 3 move forward oh so slightly
         while (runtime.seconds() < .4)
         {
-            leftDrive.setPower(FORWARD_SPEED);
-            rightDrive.setPower(FORWARD_SPEED);
+            leftDrive.setPower(-FORWARD_SPEED);
+            rightDrive.setPower(-FORWARD_SPEED);
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
 
@@ -73,8 +73,8 @@ public class AutoCrater extends robotmanager {
 
         //Step 5 move straight for the crater
         while(runtime.seconds() < 0.5){
-            leftDrive.setPower(FORWARD_SPEED);
-            rightDrive.setPower(FORWARD_SPEED);
+            leftDrive.setPower(-FORWARD_SPEED);
+            rightDrive.setPower(-FORWARD_SPEED);
 
         }
         runtime.reset();
@@ -91,8 +91,8 @@ public class AutoCrater extends robotmanager {
         //Step 7: Go forward
         while(runtime.seconds() < 1){
 
-            leftDrive.setPower(FORWARD_SPEED);
-            rightDrive.setPower(FORWARD_SPEED);
+            leftDrive.setPower(-FORWARD_SPEED);
+            rightDrive.setPower(-FORWARD_SPEED);
         }
 
 
