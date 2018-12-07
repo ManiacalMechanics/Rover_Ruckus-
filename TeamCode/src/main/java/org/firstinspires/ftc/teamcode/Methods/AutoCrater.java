@@ -32,7 +32,7 @@ public class AutoCrater extends robotmanager {
 
 
         //Step 1: move lift motor down
-        while (runtime.seconds() < 5.6)
+        while (opModeIsActive() && runtime.seconds() < 5.6)
         {
             liftMotor.setPower(2);
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
@@ -41,7 +41,7 @@ public class AutoCrater extends robotmanager {
 
         // Step 2:  Spin right for 0.3 seconds
         runtime.reset();
-        while ( runtime.seconds() < .3)
+        while (opModeIsActive() && runtime.seconds() < .3)
         {
             leftDrive.setPower(TURN_SPEED);
             rightDrive.setPower(-TURN_SPEED);
@@ -53,7 +53,7 @@ public class AutoCrater extends robotmanager {
         //        rightDrive.setPower(0);
 
         //Step 3 move forward oh so slightly
-        while (runtime.seconds() < .4)
+        while (opModeIsActive() && runtime.seconds() < .4)
         {
             leftDrive.setPower(-FORWARD_SPEED);
             rightDrive.setPower(-FORWARD_SPEED);
@@ -63,7 +63,7 @@ public class AutoCrater extends robotmanager {
         }
 
         // Step 4 turn left slightly to straighten up robot
-        while (runtime.seconds() < .7)
+        while (opModeIsActive() && runtime.seconds() < .7)
         {
             leftDrive.setPower(-TURN_SPEED);
             rightDrive.setPower(TURN_SPEED);
@@ -72,7 +72,7 @@ public class AutoCrater extends robotmanager {
         }
 
         //Step 5 move straight for the crater
-        while(runtime.seconds() < 0.5){
+        while(opModeIsActive() && runtime.seconds() < 0.5){
             leftDrive.setPower(-FORWARD_SPEED);
             rightDrive.setPower(-FORWARD_SPEED);
 
@@ -82,14 +82,14 @@ public class AutoCrater extends robotmanager {
 
         //step 6: Turn back and to the right
 
-        while(runtime.seconds() < 0.3){
+        while(opModeIsActive() && runtime.seconds() < 0.3){
             leftDrive.setPower(-TURN_SPEED);
             rightDrive.setPower(TURN_SPEED);
 
         }
 
         //Step 7: Go forward
-        while(runtime.seconds() < 1){
+        while(opModeIsActive() && runtime.seconds() < 1){
 
             leftDrive.setPower(-FORWARD_SPEED);
             rightDrive.setPower(-FORWARD_SPEED);
@@ -114,7 +114,7 @@ public class AutoCrater extends robotmanager {
 
 
         //step 9 go backwards
-        while(runtime.seconds() < 1){
+        while(opModeIsActive() && runtime.seconds() < 1){
             leftDrive.setPower(FORWARD_SPEED*-1);
             rightDrive.setPower(FORWARD_SPEED*-1);
         }
