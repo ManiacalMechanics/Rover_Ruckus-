@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.util.Range;
 
         class driveMethods extends robotmanager{
      double[] driveTurn(float leftstick, float rightstick){
-    return new double[]{Range.clip(leftstick + rightstick, -1.0, 1.0),Range.clip(leftstick + rightstick, -1.0, 1.0)};
+    return new double[]{Range.clip(leftstick + rightstick, -1.0, 2.0),Range.clip(leftstick + rightstick, -1.0, 2.0)};
         }
 
     double[] driveTank(float leftstick,float rightstick) {

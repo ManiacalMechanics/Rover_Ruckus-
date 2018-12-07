@@ -46,6 +46,9 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(TURN_SPEED);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
+                sleep(200);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
             }
 
     //        leftDrive.setPower(0);
@@ -58,6 +61,9 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(FORWARD_SPEED);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
+                sleep(200);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
 
             }
 
@@ -68,6 +74,9 @@ public class AutoRedBall extends robotmanager {
                     rightDrive.setPower(-TURN_SPEED);
                     telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
+                sleep(200);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
             }
 
             //Step 5 move straight for the crater
@@ -80,6 +89,9 @@ public class AutoRedBall extends robotmanager {
                     rightDrive.setPower(-FORWARD_SPEED);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
+                    sleep(200);
+                    leftDrive.setPower(0);
+                    rightDrive.setPower(0);
                 }
 
 
@@ -92,6 +104,53 @@ public class AutoRedBall extends robotmanager {
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
                 }
+
+            //step 7 turn left to face the crater
+            runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() <.6))
+            {
+                boxMotor.setPower(0);
+                leftDrive.setPower(TURN_SPEED);
+                rightDrive.setPower(-TURN_SPEED);
+                telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+                sleep(200);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
+            }
+
+            //step 8 move to crater
+        runtime.reset();
+            while (opModeIsActive() && (runtime.seconds() <3))
+            {
+                leftDrive.setPower(-FORWARD_SPEED);
+                rightDrive.setPower(-FORWARD_SPEED);
+                telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                telemetry.update();
+                sleep(200);
+                leftDrive.setPower(0);
+                rightDrive.setPower(0);
+            }
+            //            runtime.reset();
+//            while (opModeIsActive() && (runtime.seconds() < 2))
+//            {
+//                leftDrive.setPower(-FORWARD_SPEED);
+//                rightDrive.setPower(-FORWARD_SPEED);
+//                sleep(200);
+//                telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+//                telemetry.update();
+//
+
+
+//            }
+              //step 9 extend arm into crater
+            while (opModeIsActive() && (runtime.seconds() < 4))
+             {
+                 boxext.setPower(1);
+                 sleep(200);
+                 telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
+                 telemetry.update();
+             }
 
                 leftDrive.setPower(0);
                 rightDrive.setPower(0);
