@@ -23,66 +23,108 @@ public class AutoRedBall extends robotmanager {
         Init();        // The init() method of the hardware class does all the work here
 
             // Send telemetry message to signify robot waiting;
+
+
             telemetry.addData("Status", "Ready to run");    //
             telemetry.update();
+//
+//            // Wait for the game to start (driver presses PLAY)
+//            waitForStart();
+//            liftMotor.setPower(1);
+//            try {
+//                Thread.sleep(6000);
+//            }
+//            catch(Exception e)
+//            {
+//                e.printStackTrace();
+//            }
 
-            // Wait for the game to start (driver presses PLAY)
-            waitForStart();
+
+
+
 
 
             //Step 1: move lift motor down
-            while (runtime.seconds() < 6)
-            {
-                liftMotor.setPower(1);
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
-            }
+//            while (runtime.seconds() < 6)
+//            {
+//                liftMotor.setPower(1);
+//                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+//                telemetry.update();
+//
+//            }
+
+
 
             // Step 2:  Spin right for 1.3 seconds
+        leftDrive.setPower(TURN_SPEED);
+        rightDrive.setPower(-TURN_SPEED);
+        try {
+                Thread.sleep(1300);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
 
-            while ( runtime.seconds() < 1)
-            {
-                leftDrive.setPower(-TURN_SPEED);
-                rightDrive.setPower(TURN_SPEED);
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
-                leftDrive.setPower(0);
-                rightDrive.setPower(0);
-                sleep(200);
-
-            }
+//        while ( runtime.seconds() < 2)
+//            {
+//                leftDrive.setPower(TURN_SPEED);
+//                rightDrive.setPower(-TURN_SPEED);
+//                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+//                telemetry.update();
+//
+//
+//            }
 
     //        leftDrive.setPower(0);
     //        rightDrive.setPower(0);
 
             //Step 3 move forward oh so slightly
-            while (runtime.seconds() < .5)
-            {
-                leftDrive.setPower(FORWARD_SPEED);
-                rightDrive.setPower(FORWARD_SPEED);
-                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-                telemetry.update();
-                leftDrive.setPower(0);
-                rightDrive.setPower(0);
-                sleep(200);
+        leftDrive.setPower(FORWARD_SPEED);
+        rightDrive.setPower(FORWARD_SPEED);
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
 
 
-            }
+        leftDrive.setPower(-FORWARD_SPEED);
+        rightDrive.setPower(FORWARD_SPEED);
+        try {
+            Thread.sleep(500);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+//            while (runtime.seconds() < 1)
+//            {
+//                leftDrive.setPower(FORWARD_SPEED);
+//                rightDrive.setPower(FORWARD_SPEED);
+//                telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+//                telemetry.update();
+//
+//
+//
+//            }
 
             // Step 4 turn left slightly to straighten up robot
-            while (runtime.seconds() < .8)
-            {
-                    leftDrive.setPower(TURN_SPEED);
-                    rightDrive.setPower(-TURN_SPEED);
-                    telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
-                    telemetry.update();
-                    leftDrive.setPower(0);
-                     rightDrive.setPower(0);
-                sleep(200);
+//            while (runtime.seconds() < 1.5)
+//            {
+//                    leftDrive.setPower(TURN_SPEED);
+//                    rightDrive.setPower(-TURN_SPEED);
+//                    telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
+//                    telemetry.update();
+//
+//
+//            }
 
-            }
 
             //Step 5 move straight for the crater
+
 
             runtime.reset();
 
@@ -92,9 +134,7 @@ public class AutoRedBall extends robotmanager {
                     rightDrive.setPower(-FORWARD_SPEED);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
-                    leftDrive.setPower(0);
-                    rightDrive.setPower(0);
-                    sleep(200);
+
 
                 }
 
@@ -107,7 +147,6 @@ public class AutoRedBall extends robotmanager {
                     boxMotor.setPower(1);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
-                    sleep(100);
 
                 }
 
@@ -120,9 +159,7 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(-TURN_SPEED);
                 telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
-                sleep(200);
-                leftDrive.setPower(0);
-                rightDrive.setPower(0);
+
             }
 
             //step 8 move to crater
@@ -133,9 +170,7 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(-FORWARD_SPEED);
                 telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
-                leftDrive.setPower(0);
-                rightDrive.setPower(0);
-                sleep(200);
+
 
             }
             //            runtime.reset();
