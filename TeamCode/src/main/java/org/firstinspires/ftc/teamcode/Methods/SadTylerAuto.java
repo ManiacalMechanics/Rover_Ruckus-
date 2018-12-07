@@ -30,16 +30,16 @@ public class SadTylerAuto extends robotmanager {
 
 
 //        //Step 1: move lift motor down
-//        while (runtime.seconds() < 7.5)
-//        {
-//            liftMotor.setPower(1);
-//            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
-//            telemetry.update();
-//        }
+        while (runtime.seconds() < 5.8)
+        {
+            liftMotor.setPower(1);
+            telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
+            telemetry.update();
+        }
 
         // Step 2:  Spin right for 1.3 seconds
 
-        while ( runtime.seconds() < 1)
+        while ( runtime.seconds() < .4)
         {
             leftDrive.setPower(-TURN_SPEED);
             rightDrive.setPower(TURN_SPEED);
@@ -51,10 +51,10 @@ public class SadTylerAuto extends robotmanager {
         //        rightDrive.setPower(0);
 
         //Step 3 move forward oh so slightly
-        while (runtime.seconds() < .5)
+        while (runtime.seconds() < .3)
         {
-            leftDrive.setPower(FORWARD_SPEED);
-            rightDrive.setPower(FORWARD_SPEED);
+            leftDrive.setPower(-FORWARD_SPEED);
+            rightDrive.setPower(-FORWARD_SPEED);
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
             telemetry.update();
 
@@ -73,7 +73,7 @@ public class SadTylerAuto extends robotmanager {
 
         runtime.reset();
 
-        while (opModeIsActive() && (runtime.seconds() < 1.6))
+        while (opModeIsActive() && (runtime.seconds() < 2.3))
         {
             leftDrive.setPower(-FORWARD_SPEED);
             rightDrive.setPower(-FORWARD_SPEED);

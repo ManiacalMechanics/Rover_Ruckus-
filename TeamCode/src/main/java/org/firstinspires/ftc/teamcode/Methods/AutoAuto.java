@@ -28,12 +28,20 @@ public class AutoAuto extends robotmanager {
         telemetry.update();
         waitForStart();
 
+        liftMotor.setPower(1);
+        try {
+            Thread.sleep(5800);
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
 
         //turns right to unhook
         leftDrive.setPower(TURN_SPEED);
         rightDrive.setPower(-TURN_SPEED);
         try {
-            Thread.sleep(550);
+            Thread.sleep(400);
         }
         catch (InterruptedException e)
         {
@@ -41,10 +49,10 @@ public class AutoAuto extends robotmanager {
         }
 
         //goes forward to pass hook
-        leftDrive.setPower(FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
+        leftDrive.setPower(-FORWARD_SPEED);
+        rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(200);
+            Thread.sleep(500);
         }
         catch (InterruptedException e)
         {
@@ -55,17 +63,17 @@ public class AutoAuto extends robotmanager {
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(FORWARD_SPEED);
         try {
-            Thread.sleep(500);
+            Thread.sleep(750);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
 
         //go to crater
-        leftDrive.setPower(FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
+        leftDrive.setPower(-FORWARD_SPEED);
+        rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(200);
+            Thread.sleep(5000);
         }
         catch (InterruptedException e)
         {
@@ -76,7 +84,7 @@ public class AutoAuto extends robotmanager {
 
         boxMotor.setPower(1);
         try {
-            Thread.sleep(500);
+            Thread.sleep(1500);
         }
         catch (InterruptedException e)
         {
