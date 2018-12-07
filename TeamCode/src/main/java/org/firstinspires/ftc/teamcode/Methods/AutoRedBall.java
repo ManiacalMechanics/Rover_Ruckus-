@@ -31,7 +31,7 @@ public class AutoRedBall extends robotmanager {
 
 
             //Step 1: move lift motor down
-            while (runtime.seconds() < 7.5)
+            while (runtime.seconds() < 6)
             {
                 liftMotor.setPower(1);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
@@ -46,9 +46,10 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(TURN_SPEED);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
-                sleep(200);
                 leftDrive.setPower(0);
                 rightDrive.setPower(0);
+                sleep(200);
+
             }
 
     //        leftDrive.setPower(0);
@@ -61,9 +62,10 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(FORWARD_SPEED);
                 telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
-                sleep(200);
                 leftDrive.setPower(0);
                 rightDrive.setPower(0);
+                sleep(200);
+
 
             }
 
@@ -74,9 +76,10 @@ public class AutoRedBall extends robotmanager {
                     rightDrive.setPower(-TURN_SPEED);
                     telemetry.addData("Path", "leg 2: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
+                    leftDrive.setPower(0);
+                     rightDrive.setPower(0);
                 sleep(200);
-                leftDrive.setPower(0);
-                rightDrive.setPower(0);
+
             }
 
             //Step 5 move straight for the crater
@@ -89,9 +92,10 @@ public class AutoRedBall extends robotmanager {
                     rightDrive.setPower(-FORWARD_SPEED);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
-                    sleep(200);
                     leftDrive.setPower(0);
                     rightDrive.setPower(0);
+                    sleep(200);
+
                 }
 
 
@@ -103,6 +107,8 @@ public class AutoRedBall extends robotmanager {
                     boxMotor.setPower(1);
                     telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                     telemetry.update();
+                    sleep(100);
+
                 }
 
             //step 7 turn left to face the crater
@@ -127,9 +133,10 @@ public class AutoRedBall extends robotmanager {
                 rightDrive.setPower(-FORWARD_SPEED);
                 telemetry.addData("Path", "Leg 3: %2.5f S Elapsed", runtime.seconds());
                 telemetry.update();
-                sleep(200);
                 leftDrive.setPower(0);
                 rightDrive.setPower(0);
+                sleep(200);
+
             }
             //            runtime.reset();
 //            while (opModeIsActive() && (runtime.seconds() < 2))
