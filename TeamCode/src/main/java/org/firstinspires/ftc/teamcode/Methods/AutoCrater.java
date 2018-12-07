@@ -73,8 +73,8 @@ public class AutoCrater extends robotmanager {
 
         //Step 5 move straight for the crater
         while(runtime.seconds() < 0.5){
-            leftDrive.setPower(-FORWARD_SPEED);
-            rightDrive.setPower(-FORWARD_SPEED);
+            leftDrive.setPower(FORWARD_SPEED);
+            rightDrive.setPower(FORWARD_SPEED);
 
         }
         runtime.reset();
