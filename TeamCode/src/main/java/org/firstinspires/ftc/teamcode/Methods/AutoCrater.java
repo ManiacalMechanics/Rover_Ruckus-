@@ -32,7 +32,7 @@ public class AutoCrater extends robotmanager {
 
 
         //Step 1: move lift motor down
-        while (runtime.seconds() < 5)
+        while (runtime.seconds() < 6)
         {
             liftMotor.setPower(2);
             telemetry.addData("Path", "Leg 2: %2.5f S Elapsed", runtime.seconds());
