@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 @Autonomous(name="AutoAuto", group="Pushbot")
-public class AutoAuto extends robotmanager {
+public class MainAutoCrater  extends robotmanager {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
@@ -42,56 +42,8 @@ public class AutoAuto extends robotmanager {
         rightDrive.setPower(-TURN_SPEED);
         try {
             Thread.sleep(400);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        //goes forward to pass hook
-        leftDrive.setPower(-FORWARD_SPEED);
-        rightDrive.setPower(-FORWARD_SPEED);
-        try {
-            Thread.sleep(500);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-
-        // turns left to straighten robot
-        leftDrive.setPower(-FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
-        try {
-            Thread.sleep(750);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        //go to crater
-        leftDrive.setPower(-FORWARD_SPEED);
-        rightDrive.setPower(-FORWARD_SPEED);
-        try {
-            Thread.sleep(5000);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-
-        //spit of marker
-
-        boxMotor.setPower(1);
-        try {
-            Thread.sleep(1500);
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }
-
-        stop();
     }
 }
-
