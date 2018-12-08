@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 @Autonomous(name="AutoAuto", group="Pushbot")
-public class AutoAuto extends robotmanager {
+public class MainAutoDepot extends robotmanager {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
