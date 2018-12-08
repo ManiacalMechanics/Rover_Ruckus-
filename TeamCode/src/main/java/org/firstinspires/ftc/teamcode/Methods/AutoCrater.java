@@ -54,6 +54,9 @@ public class AutoCrater extends robotmanager {
         //        rightDrive.setPower(0);
 
         //Step 3 move forward oh so slightly
+
+
+        /*
         runtime.reset();
         while (opModeIsActive() && runtime.seconds() < .4)
         {
@@ -127,5 +130,7 @@ runtime.reset();
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
+
+        */
     }
 }
