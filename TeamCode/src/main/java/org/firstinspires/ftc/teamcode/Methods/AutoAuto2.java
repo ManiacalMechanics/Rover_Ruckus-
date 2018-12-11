@@ -8,8 +8,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 
-@Autonomous(name="MainAutoDepot", group="Pushbot")
-public class MainAutoDepot extends robotmanager {
+@Autonomous(name="AutoAuto2", group="Pushbot")
+public class AutoAuto2 extends robotmanager {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
@@ -29,20 +29,20 @@ public class MainAutoDepot extends robotmanager {
 
         waitForStart();
 
-        liftMotor.setPower(1);
-        try {
-            Thread.sleep(6800);
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        liftMotor.setPower(0);
+//        liftMotor.setPower(1);
+//        try {
+//            Thread.sleep(6800);
+//
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        liftMotor.setPower(0);
 
         //turns right to unhook
         leftDrive.setPower(TURN_SPEED);
         rightDrive.setPower(-TURN_SPEED);
         try {
-            Thread.sleep(245);
+            Thread.sleep(150);
         }
         catch (InterruptedException e)
         {
@@ -76,12 +76,14 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1200);
         }
         catch (InterruptedException e)
         {
             e.printStackTrace();
         }
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
 
         //spit of marker
 
@@ -97,4 +99,5 @@ public class MainAutoDepot extends robotmanager {
         stop();
     }
 }
+
 

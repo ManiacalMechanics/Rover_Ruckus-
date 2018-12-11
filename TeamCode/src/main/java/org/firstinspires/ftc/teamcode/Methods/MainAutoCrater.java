@@ -8,7 +8,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 
 
-@Autonomous(name="AutoAuto", group="Pushbot")
+@Autonomous(name="MainAutoCrater", group="Pushbot")
 public class MainAutoCrater  extends robotmanager {
 
     /* Declare OpMode members. */
