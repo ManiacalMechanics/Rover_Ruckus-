@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.Methods;
+package org.firstinspires.ftc.teamcode.RoverRucusAutonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
-
+import org.firstinspires.ftc.teamcode.Methods.robotmanager;
 
 
 @Autonomous(name="MainAutoCrater", group="Pushbot")
@@ -19,15 +19,15 @@ public class MainAutoCrater  extends robotmanager {
 
     @Override
     public void runOpMode() {
-        Init();        // The init() method of the hardware class does all the work here
 
-        // Send telemetry message to signify robot waiting;
-
+        Init();
 
         telemetry.addData("Status", "Ready to run");    //
         telemetry.update();
         waitForStart();
 
+
+//lift motor goes for 5.8
         liftMotor.setPower(1);
         try {
             Thread.sleep(5800);
@@ -37,7 +37,8 @@ public class MainAutoCrater  extends robotmanager {
         }
         liftMotor.setPower(0);
 
-        //turns right to unhook
+
+//turns right to unhook
         leftDrive.setPower(TURN_SPEED);
         rightDrive.setPower(-TURN_SPEED);
         try {
