@@ -1,4 +1,6 @@
 package org.firstinspires.ftc.teamcode.RoverRucusAutonomous;
+import android.drm.DrmStore;
+
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -71,6 +73,39 @@ public class MainAutoDepot extends robotmanager {
         {
             e.printStackTrace();
         }
+//turns right to face the crater
+
+        leftDrive.setPower(-TURN_SPEED);
+        rightDrive.setPower(TURN_SPEED);
+        try {
+            Thread.sleep(300);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
+//Drives to crater
+        leftDrive.setPower(-FORWARD_SPEED);
+        rightDrive.setPower(-FORWARD_SPEED);
+        try {
+            Thread.sleep(1200);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//extends arm into crater
+        boxext.setPower(1);
+        try {
+            Thread.sleep(200);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        boxext.setPower(0);
+
 //stops robot
         stop();
     }

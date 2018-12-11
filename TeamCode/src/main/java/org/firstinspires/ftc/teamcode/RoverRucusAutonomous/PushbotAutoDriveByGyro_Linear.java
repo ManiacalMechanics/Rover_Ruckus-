@@ -27,7 +27,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package org.firstinspires.ftc.teamcode.Methods;
+package org.firstinspires.ftc.teamcode.RoverRucusAutonomous;
 
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -38,6 +38,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
+import org.firstinspires.ftc.teamcode.Methods.robotmanager;
 
 /**
  * This file illustrates the concept of driving a path based on Gyro heading and encoder counts.
@@ -74,7 +75,7 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 
 @Autonomous(name="Pushbot: Auto xdxdxdxdxdxdDrive By Gyro", group="Pushbot")
 @Disabled
-public class PushbotAutoDriveByGyro_Linear extends robotmanager{
+public class PushbotAutoDriveByGyro_Linear extends robotmanager {
 
     /* Declare OpMode members. */
     HardwarePushbot         robot   = new HardwarePushbot();   // Use a Pushbot's hardware
