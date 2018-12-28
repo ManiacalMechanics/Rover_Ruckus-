@@ -139,6 +139,11 @@ public class ConceptVuforiaNavRoverRuckus extends LinearOpMode {
 
 //         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
+
+        telemetry.addLine("Hello"  )
+
+
+
         parameters.vuforiaLicenseKey = VUFORIA_KEY ;
         parameters.cameraDirection   = CAMERA_CHOICE;
 
