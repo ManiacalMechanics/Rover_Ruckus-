@@ -31,13 +31,15 @@ public class MainAutoDepot extends robotmanager {
 // This will lower the lift for 5.8 seconds
         liftMotor.setPower(1);
         try {
-            Thread.sleep(5800);
+            Thread.sleep(6600);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         liftMotor.setPower(0);
 
+//hits ground and stops
+        sleep(150);
 
  //turns right to unhook
         leftDrive.setPower(TURN_SPEED);
@@ -50,12 +52,33 @@ public class MainAutoDepot extends robotmanager {
             e.printStackTrace();
         }
 
+        // goes forward slightly
+        leftDrive.setPower(FORWARD_SPEED);
+        rightDrive.setPower(FORWARD_SPEED);
+        try {
+            Thread.sleep(125);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+//turns left to face the depot
+        leftDrive.setPower(-TURN_SPEED);
+        rightDrive.setPower(TURN_SPEED);
+        try {
+            Thread.sleep(145);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+
 
 //go to crater for .9 seconds
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(950);
+            Thread.sleep(1050);
         }
         catch (InterruptedException e)
         {
@@ -73,12 +96,27 @@ public class MainAutoDepot extends robotmanager {
         {
             e.printStackTrace();
         }
+        boxMotor.setPower(0);
+
+//robot backs up
+        leftDrive.setPower(FORWARD_SPEED);
+        rightDrive.setPower(FORWARD_SPEED);
+        try {
+            Thread.sleep(250);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
+
 //turns right to face the crater
 
         leftDrive.setPower(-TURN_SPEED);
         rightDrive.setPower(TURN_SPEED);
         try {
-            Thread.sleep(300);
+            Thread.sleep(480);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -90,21 +128,32 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(1200);
+            Thread.sleep(1310);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
+        leftDrive.setPower(0);
+        rightDrive.setPower(0);
 
 //extends arm into crater
         boxext.setPower(1);
         try {
-            Thread.sleep(200);
+            Thread.sleep(1000);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
         }
         boxext.setPower(0);
+//brings arm lift down
+        liftMotor.setPower(-1);
+        try {
+            Thread.sleep(6600);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        liftMotor.setPower(0);
 
 //stops robot
         stop();

@@ -29,6 +29,8 @@
 
 package org.firstinspires.ftc.teamcode.RoverRucusAutonomous;
 
+import android.util.Log;
+
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -107,7 +109,12 @@ public class ConceptVuforiaNavRoverRuckus extends LinearOpMode {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    private static final String VUFORIA_KEY = " AaA3nev/////AAABmZWyIPXF/kcKjRqjBWEHQDWJ7dQKsGoekUHJhQ1ps2u7KGvERhDfRZlnGRoaMgkkBLUZ4X3xwpgjZ4tDe3lPobhlRuEsMkz8AI1a9fJIhZNfEl0gw8VRqLj135L7+0cs0iZawSnKcT4Y3ST6AwAAwt9IrTqK+rdZge4YlFHL4Kg2Ild4ic8Z3tB6tGPozZ1qCgNdGL/+UQ89jwXFBN8FkFxQxlJvdWYXH66/mJDV2M1z9QAqawCTYxqRLM1FCv0sn8GKFn3pHLgiDI9xrfgCh+u/vbLcB62Lfd2goGCXIO4OYrPIQ7BDth3gsor5qv7oLF3g1spwzF1KcwIAQ6+alw7HwUCutN3zEGJBV05pKgUm\n";
+    private static final String VUFORIA_KEY = "AVL5SH7/////AAAAGQHMTrmZFkVaqLgyIFXlUot8Bj4E0gdKiux+X0Pw/1vkCO02" +
+            "YQNTTWDYnCV2DpnMYwq1E4S745dGDU0oUTRAD8XmI4WPL5MpPRCjvPPUaixm+D4u" +
+            "UrjpGH7+P8v+ZqqSKINM3NayE6lzg96ZrdLhGVnchvIpFsanlkm6hQfQeUSompiO" +
+            "XU8wZdbz+Ryc5WM4nDdI1R7VdmWZGejnMx4OgoqzAcOJbP7tO/FXdsoWFNUZGcO2" +
+            "Az0nnaAX9W5OdDy+78grYk+R9kdYu6eBNwZ/G01zlkiJM24slrCR7wlfiWtH+ywO" +
+            "ZpWYRZTGIrsrMLIk3USWLRRO/Yf0wKzyu1nHiqBuRQeVlZgm35T19WQk55FO";
 
     // Since ImageTarget trackables use mm to specifiy their dimensions, we must use mm for all the physical dimension.
     // We will define some constants and conversions here
@@ -117,7 +124,7 @@ public class ConceptVuforiaNavRoverRuckus extends LinearOpMode {
 
     // Select which camera you want use.  The FRONT camera is the one on the same side as the screen.
     // Valid choices are:  BACK or FRONT
-    private static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = BACK;
+    private static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = FRONT;
 
     private OpenGLMatrix lastLocation = null;
     private boolean targetVisible = false;
@@ -134,13 +141,20 @@ public class ConceptVuforiaNavRoverRuckus extends LinearOpMode {
          * We can pass Vuforia the handle to a camera preview resource (on the RC phone);
          * If no camera monitor is desired, use the parameterless constructor instead (commented out below).
          */
+
+        Log.e("Debug" , "Okay");
+
+
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
-
-//         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
+//        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters(cameraMonitorViewId);
 
 
-        telemetry.addLine("Hello"  )
+
+
+         VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
+
+
+
 
 
 
