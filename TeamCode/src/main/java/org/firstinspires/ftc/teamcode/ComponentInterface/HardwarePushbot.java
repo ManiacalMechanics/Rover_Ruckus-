@@ -17,7 +17,8 @@ import com.qualcomm.robotcore.util.ElapsedTime;
             public DcMotor rightDrive = null;
 
 
-            /* local OpMode members. */
+
+        /* local OpMode members. */
              HardwareMap hwMap = null;
              private ElapsedTime period = new ElapsedTime();
 

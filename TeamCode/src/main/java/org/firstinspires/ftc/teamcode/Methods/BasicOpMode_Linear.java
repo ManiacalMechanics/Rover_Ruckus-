@@ -54,7 +54,7 @@ public class BasicOpMode_Linear extends robotmanager {
             // drive mode switching
 
 
-            boxPitch.setPower(gamepad2.right_stick_x);
+            boxPitch.setPower(-gamepad2.right_stick_y);
 
 
             //key listener

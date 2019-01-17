@@ -31,7 +31,7 @@ public class MainAutoDepot extends robotmanager {
 // This will lower the lift for 5.8 seconds
         liftMotor.setPower(1);
         try {
-            Thread.sleep(6600);
+            Thread.sleep(6610);
 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(TURN_SPEED);
         rightDrive.setPower(-TURN_SPEED);
         try {
-            Thread.sleep(245);
+            Thread.sleep(253);
         }
         catch (InterruptedException e)
         {
@@ -66,7 +66,7 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(-TURN_SPEED);
         rightDrive.setPower(TURN_SPEED);
         try {
-            Thread.sleep(145);
+            Thread.sleep(140);
         }
         catch (InterruptedException e)
         {
@@ -116,7 +116,7 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(-TURN_SPEED);
         rightDrive.setPower(TURN_SPEED);
         try {
-            Thread.sleep(480);
+            Thread.sleep(430);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -128,7 +128,7 @@ public class MainAutoDepot extends robotmanager {
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
-            Thread.sleep(1310);
+            Thread.sleep(1237);
         }
         catch (InterruptedException e) {
             e.printStackTrace();
@@ -145,7 +145,7 @@ public class MainAutoDepot extends robotmanager {
             e.printStackTrace();
         }
         boxext.setPower(0);
-//brings arm lift down
+////brings arm lift down
         liftMotor.setPower(-1);
         try {
             Thread.sleep(6600);
