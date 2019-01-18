@@ -8,8 +8,8 @@ import org.firstinspires.ftc.robotcontroller.external.samples.HardwarePushbot;
 import org.firstinspires.ftc.teamcode.Methods.robotmanager;
 
 
-@Autonomous(name="MainAutoCrater", group="Pushbot")
-public class MainAutoCrater  extends robotmanager {
+@Autonomous(name="MainAutoCraterNoCrater", group="Pushbot")
+public class MainAutoCraterNoCrater  extends robotmanager {
 
     /* Declare OpMode members. */
     private ElapsedTime runtime = new ElapsedTime();
@@ -47,9 +47,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-TURN_SPEED);
         try {
             Thread.sleep(260);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -58,8 +56,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-FORWARD_SPEED);
         try {
             Thread.sleep(125);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -68,9 +65,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(TURN_SPEED);
         try {
             Thread.sleep(280);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -79,8 +74,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-FORWARD_SPEED);
         try {
             Thread.sleep(447);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -89,11 +83,9 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(FORWARD_SPEED);
         try {
             Thread.sleep(560);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
 
 // turn right to start facing the depot
@@ -101,9 +93,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-TURN_SPEED);
         try {
             Thread.sleep(355);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -112,11 +102,9 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-FORWARD_SPEED);
         try {
             Thread.sleep(300);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
 
 
 //turns to face depot
@@ -124,8 +112,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-TURN_SPEED);
         try {
             Thread.sleep(582);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -134,8 +121,7 @@ public class MainAutoCrater  extends robotmanager {
         rightDrive.setPower(-FORWARD_SPEED);
         try {
             Thread.sleep(577);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         leftDrive.setPower(0);
@@ -145,63 +131,17 @@ public class MainAutoCrater  extends robotmanager {
         boxMotor.setPower(1);
         try {
             Thread.sleep(1500);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         boxMotor.setPower(0);
         sleep(1000);
 
-//backs up
-        leftDrive.setPower(FORWARD_SPEED);
-        rightDrive.setPower(FORWARD_SPEED);
-        try {
-            Thread.sleep(333);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-//spins around to face crater
-        leftDrive.setPower(TURN_SPEED);
-        rightDrive.setPower(-TURN_SPEED);
-        try {
-            Thread.sleep(1280);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
- //goes to crater
-        leftDrive.setPower(-FORWARD_SPEED);
-        rightDrive.setPower(-FORWARD_SPEED);
-        try {
-            Thread.sleep(935);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        leftDrive.setPower(0);
-        rightDrive.setPower(0);
-
-
-        //extends arm into crater
-        boxext.setPower(1);
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        boxext.setPower(0);
-
-
+//lift motor down 
         liftMotor.setPower(-1);
         try {
             Thread.sleep(6600);
-        }
-        catch (InterruptedException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         liftMotor.setPower(0);
