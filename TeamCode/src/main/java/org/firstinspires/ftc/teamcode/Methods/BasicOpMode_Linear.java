@@ -33,7 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import java.util.concurrent.TimeUnit;
 
 @TeleOp(name="Basic: Linear OpModexd", group="Linear Opmode")
-//@Disabled
+
 public class BasicOpMode_Linear extends robotmanager {
 
     // Declare OpMode members.
@@ -56,20 +56,6 @@ public class BasicOpMode_Linear extends robotmanager {
 
             boxPitch.setPower(-gamepad2.right_stick_y);
 
-
-            //key listener
-            /*if(gamepad1.y){
-                listenery=true;
-                residualy=true;
-            }else{
-                listenery=false;
-            }*/
-
-
-                        /*if(listenery==false&&residualy==true){
-                            mdswitch*=-1;
-                            residualy=false;
-                        }*/
                         if(keyrelease.keyrelease(gamepad1.y)){
                             mdswitch*=-1;
                             keyrelease.keyreleasecom();
@@ -82,12 +68,12 @@ public class BasicOpMode_Linear extends robotmanager {
                 {
                 Power = driveMethods.driveTurn(gamepad1.left_stick_y, gamepad1.right_stick_x);
                  }
-            //slowmode button
+        //slowmode button
             if (gamepad1.x) {
                 smode *= -1;
             }
 
-            //power delivery
+       //power delivery
             if (smode == 1) {
                 leftDrive.setPower(Power[0]);
                 rightDrive.setPower(Power[1]);
@@ -96,7 +82,7 @@ public class BasicOpMode_Linear extends robotmanager {
                 rightDrive.setPower(Power[1] * 0.75);
             }
 
-            // lift motor power and thing
+      // lift motor power and thing
             if (gamepad2.left_bumper) {
                 liftMotor.setPower(liftPower * 1);
             } else {
@@ -107,7 +93,7 @@ public class BasicOpMode_Linear extends robotmanager {
                 }
             }
 
-            //boxservo
+      //boxservo
             if (gamepad2.y) {
                 boxMotor.setPower(-1);
             } else {
@@ -119,7 +105,7 @@ public class BasicOpMode_Linear extends robotmanager {
                 boxMotor.setPower(0);
             }
 
-            //boxext buttons
+       //boxext buttons
             if (gamepad2.dpad_left) {
                 boxext.setPower(1);
             } else {

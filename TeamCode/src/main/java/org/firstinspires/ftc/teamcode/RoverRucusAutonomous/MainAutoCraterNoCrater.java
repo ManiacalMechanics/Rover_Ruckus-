@@ -27,8 +27,7 @@ public class MainAutoCraterNoCrater  extends robotmanager {
         waitForStart();
 
 
-        // This will lower the lift for 5.8 seconds
-// This will lower the lift for 5.8 seconds
+// This will lower the lift for 6.61 seconds
         liftMotor.setPower(1);
         try {
             Thread.sleep(6610);
@@ -37,12 +36,12 @@ public class MainAutoCraterNoCrater  extends robotmanager {
             e.printStackTrace();
         }
         liftMotor.setPower(0);
+
+//stops robot for 1 sec when on ground
         sleep(1000);
 
-//hits ground and stops
 
-
-        //turns right to unhook
+//turns right to unhook
         leftDrive.setPower(TURN_SPEED);
         rightDrive.setPower(-TURN_SPEED);
         try {
@@ -51,7 +50,7 @@ public class MainAutoCraterNoCrater  extends robotmanager {
             e.printStackTrace();
         }
 
-        // goes forward slightly
+// goes forward slightly
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
@@ -69,7 +68,7 @@ public class MainAutoCraterNoCrater  extends robotmanager {
             e.printStackTrace();
         }
 
-        // goes forward hit jewl
+ // goes forward hit jewl
         leftDrive.setPower(-FORWARD_SPEED);
         rightDrive.setPower(-FORWARD_SPEED);
         try {
@@ -137,7 +136,7 @@ public class MainAutoCraterNoCrater  extends robotmanager {
         boxMotor.setPower(0);
         sleep(1000);
 
-//lift motor down 
+//lift motor down
         liftMotor.setPower(-1);
         try {
             Thread.sleep(6600);

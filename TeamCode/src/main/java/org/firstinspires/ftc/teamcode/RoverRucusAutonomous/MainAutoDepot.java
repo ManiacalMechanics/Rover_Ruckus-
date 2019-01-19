@@ -28,7 +28,7 @@ public class MainAutoDepot extends robotmanager {
 
         waitForStart();
 
-// This will lower the lift for 5.8 seconds
+// This will lower the lift for 6.61 seconds
         liftMotor.setPower(1);
         try {
             Thread.sleep(6610);
@@ -52,7 +52,7 @@ public class MainAutoDepot extends robotmanager {
             e.printStackTrace();
         }
 
-        // goes forward slightly
+ // goes forward slightly
         leftDrive.setPower(FORWARD_SPEED);
         rightDrive.setPower(FORWARD_SPEED);
         try {
