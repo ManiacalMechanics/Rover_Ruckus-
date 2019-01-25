@@ -4,7 +4,7 @@ import org.firstinspires.ftc.robotcore.external.ClassFactory
 import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector
 
 /**
- * Created by David Lukens on 10/31/2018.
+
  */
 class TFLite(private val master: MasterVision) {
     companion object {
